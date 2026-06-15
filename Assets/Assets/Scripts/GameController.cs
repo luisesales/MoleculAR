@@ -15,11 +15,16 @@ public class GameController : MonoBehaviour
 
     public Dictionary<string, GameObject> prefabs { get; private set; }
 
-    public List<GameObject> prefabsList = new List<GameObject>();
+
+    public List<GameObject> prefabsListHighQuality = new List<GameObject>();
+    public List<GameObject> prefabsListLowQuality = new List<GameObject>();
+
 
     // Changeable Variables
     public GameObject selectedModel { get; private set; }
     private GameObject selectedSceneModel;
+
+    private bool isUsingHighQualityModels = false;    
 
 
     // Private Variables
@@ -34,6 +39,8 @@ public class GameController : MonoBehaviour
     private TMP_Text toolTipText;
 
     private bool activeTutorials = true;
+
+    private List<GameObject> selectedPrefabsList;
 
     // Start is called before the first frame update
 
@@ -58,14 +65,7 @@ public class GameController : MonoBehaviour
 
         // Get the canvas and its components
         GetCanvas();
-
-        // Initialize prefabs dictionary
-        prefabs = new Dictionary<string, GameObject>();
-        foreach (GameObject prefab in prefabsList)
-        {
-            if (prefab == null || prefabs.ContainsKey(prefab.GetComponent<ModelController>().modelData.id)) continue;
-            prefabs.Add(prefab.GetComponent<ModelController>().modelData.id, prefab);
-        }
+        
     }
 
     // Method to get the canvas and its components
@@ -122,6 +122,7 @@ public class GameController : MonoBehaviour
     //Called when the simulation scene is loaded for preparing the scene
     private void StartSimulation(Scene scene, LoadSceneMode mode)
     {
+        InitiatePrefabsDictionary();
         Debug.Log("Starting simulation scene");
         GetCanvas();
         OpenCloseCanvas();
@@ -330,6 +331,22 @@ public class GameController : MonoBehaviour
             // {
             //     tutorialCanvasController.NextStep();
             // }
+        }
+    }
+
+    public void ToggleHighQualityModels()
+    {
+        isUsingHighQualityModels = !isUsingHighQualityModels;        
+    }
+
+    private void InitiatePrefabsDictionary()
+    {
+        selectedPrefabsList = isUsingHighQualityModels ? prefabsListHighQuality : prefabsListLowQuality;
+        prefabs = new Dictionary<string, GameObject>();        
+        foreach (GameObject prefab in selectedPrefabsList)
+        {
+            if (prefab == null || prefabs.ContainsKey(prefab.GetComponent<ModelController>().modelData.id)) continue;
+            prefabs.Add(prefab.GetComponent<ModelController>().modelData.id, prefab);
         }
     }
 
