@@ -24,8 +24,4 @@ public class CameraViewController : MonoBehaviour
         GameController.Instance.OpenCloseTooltip();
         GameController.Instance.ResetTooltip();
     }
-    public void NextStep()
-    {
-        GameController.Instance.NextStep();
-    }
 }
