@@ -59,6 +59,7 @@ public class TutorialCanvasSteps : MonoBehaviour
         foward.SetActive(true);
         backwards.SetActive(true);        
         background.SetActive(true);
+        tutorialParts[currentPart].SetActive(true);
     }
 }
 
