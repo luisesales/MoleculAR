@@ -39,7 +39,8 @@ public class GameController : MonoBehaviour
     private TMP_Text toolTipText;
 
     private bool activeTutorials = true;
-    private bool firstTimeTutorial = true;
+    private bool firstTimeTutorialSimulation = true;
+    private bool firstTimeTutorialDetailed = true;
 
     private List<GameObject> selectedPrefabsList;
 
@@ -88,30 +89,12 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("Loading canvas found: " + loadingCanvas.name);
             loadingCanvas.SetActive(false);
-        }
-        
-        if(!activeTutorials)
-        {
-            tutorialCanvas = GameObject.FindWithTag("CanvasTutorial");
-            if(tutorialCanvas != null)
-            {
-                tutorialCanvas.SetActive(false);
-            }
-            Debug.Log("Tutorial canvas found: " + tutorialCanvas.name);            
-        }
+        }                
     }
 
     //Called when a model is selected in the simulation scene
     public void SelectModel(GameObject model)
-    {
-        if(firstTimeTutorial) 
-        {
-            if(tutorialCanvas != null && activeTutorials)
-                {
-                    tutorialCanvas.GetComponent<TutorialCanvasSteps>().NextPart();
-                    firstTimeTutorial = false;
-                }
-        }
+    {        
         Debug.Log("Selecting model: " + model.name);
         string modelId = model.GetComponent<ModelController>().modelData.id;
         if (modelId != selectedModel?.GetComponent<ModelController>().modelData.id)
@@ -137,7 +120,8 @@ public class GameController : MonoBehaviour
         InitiatePrefabsDictionary();
         Debug.Log("Starting simulation scene");
         GetCanvas();
-        OpenCloseCanvas();        
+        OpenCloseCanvas();
+        CheckFirstTimeTutorials(ref firstTimeTutorialSimulation);
         selectedModel = null;
         selectedSceneModel = null;
         VuforiaApplication.Instance.OnVuforiaStarted +=
@@ -224,6 +208,7 @@ public class GameController : MonoBehaviour
     //Called when the detailed model scene is loaded for preparing the scene
     private void InstantiateModel(Scene scene, LoadSceneMode mode)
     {        
+        CheckFirstTimeTutorials(ref firstTimeTutorialDetailed);
         Debug.Log("Instantiating model: " + selectedModel?.name);        
         GameObject selector = GameObject.FindWithTag("Selector");
         GameObject model = Instantiate(selectedModel);
@@ -349,6 +334,24 @@ public class GameController : MonoBehaviour
         {
             if (prefab == null || prefabs.ContainsKey(prefab.GetComponent<ModelController>().modelData.id)) continue;
             prefabs.Add(prefab.GetComponent<ModelController>().modelData.id, prefab);
+        }
+    }
+
+    private void CheckFirstTimeTutorials(ref bool firstTimeTutorial)
+    {
+        if (firstTimeTutorial && activeTutorials)
+        {
+            tutorialCanvas = GameObject.FindWithTag("Tutorial");
+            if (tutorialCanvas != null)
+            {
+                tutorialCanvas.SetActive(true);
+                Debug.Log("Tutorial canvas found: " + tutorialCanvas.name);
+            }
+            else
+            {
+                Debug.LogWarning("Tutorial canvas not found.");
+            }          
+            firstTimeTutorial = false;              
         }
     }
 

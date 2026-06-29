@@ -56,10 +56,12 @@ public class TutorialCanvasSteps : MonoBehaviour
 
     public void NextPart()
     {
+        if(currentPart == tutorialParts.Count - 1)
+            return;
         foward.SetActive(true);
         backwards.SetActive(true);        
         background.SetActive(true);
-        tutorialParts[currentPart].SetActive(true);
+        tutorialParts[currentPart].SetActive(true);        
     }
 }
 

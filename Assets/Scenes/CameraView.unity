@@ -337,6 +337,68 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8781124752160699089, guid: a2678c7f88d9a8f42bf2cf4499384a55, type: 3}
   m_PrefabInstance: {fileID: 273453606}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &324283472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 591616819}
+    m_Modifications:
+    - target: {fileID: 8286353759875304857, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_Name
+      value: Tripsina
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+--- !u!4 &324283473 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
+  m_PrefabInstance: {fileID: 324283472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &475640056
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +502,143 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &591616818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 591616819}
+  - component: {fileID: 591616822}
+  - component: {fileID: 591616821}
+  - component: {fileID: 591616820}
+  m_Layer: 0
+  m_Name: Proteina-Primaria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &591616819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591616818}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.525, y: -0.71488863, z: 1.5257825}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 324283473}
+  m_Father: {fileID: 1419322186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591616820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591616818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 591616822}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: proteina-estrutura-primaria
+  mDatasetName: 
+  mCastedBehaviour: {fileID: 591616822}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &591616821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591616818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 1
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+        m_TargetAssemblyTypeName: TutorialCanvasSteps, Assembly-CSharp
+        m_MethodName: NextPart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &591616822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591616818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  RuntimeCollider: 0
+  mTrackableName: proteina-estrutura-primaria
+  mInitializedInEditor: 1
+  mDataSetPath: 
+  mAspectRatio: 0.9716312
+  mImageTargetType: 3
+  mWidth: 0.19999999
+  mHeight: 0.19432624
+  mRuntimeTexture: {fileID: 2800000, guid: 95f0a65e77416a84fa879293cfb8c6fa, type: 3}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 591616820}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +770,7 @@ GameObject:
   - component: {fileID: 767235359}
   - component: {fileID: 767235362}
   m_Layer: 0
-  m_Name: ImageTargetAlt
+  m_Name: Proteina-Terciaria-Quaternaria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +816,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+        m_TargetAssemblyTypeName: TutorialCanvasSteps, Assembly-CSharp
+        m_MethodName: NextPart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
       m_Calls: []
@@ -636,14 +847,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: png-taubate
+  mTrackableName: proteina-estrutura-terciaria-quaternaria
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 1
+  mAspectRatio: 0.962766
   mImageTargetType: 3
-  mWidth: 0.2
-  mHeight: 0.2
-  mRuntimeTexture: {fileID: 2800000, guid: 7ba95b493ff54214da073ec754731239, type: 3}
+  mWidth: 0.19999999
+  mHeight: 0.19255319
+  mRuntimeTexture: {fileID: 2800000, guid: ddb37a45b2c1e2a40ada8c4dabd03168, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -657,12 +868,12 @@ Transform:
   m_GameObject: {fileID: 767235357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2281, y: 0.002, z: 0}
+  m_LocalPosition: {x: 3.0561655, y: -0.71488863, z: 1.5257825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4747610565217439194}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1419322186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &767235362
 MonoBehaviour:
@@ -678,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 767235360}
   mHiddenRoot: {fileID: 0}
-  mTargetName: png-taubate
+  mTargetName: proteina-estrutura-terciaria-quaternaria
   mDatasetName: 
   mCastedBehaviour: {fileID: 767235360}
   mMeshFilter: {fileID: 0}
@@ -1001,73 +1212,244 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8339668473431725838, guid: 02ccaa0ad374db449bf0d9a766582ef4, type: 3}
   m_PrefabInstance: {fileID: 650599477726120426}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1207494693 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 862143405193761517, guid: 442cdb52ee481c542bd0abc7b38cb411, type: 3}
-  m_PrefabInstance: {fileID: 7065080293994386741}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1286232025
+--- !u!1001 &1177753470
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2061467769}
+    m_TransformParent: {fileID: 1539863428}
     m_Modifications:
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 3437378425109860922, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
+      propertyPath: m_Name
+      value: "GlucagonSecund\xE1rio"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.075
+      value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
+    - target: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3024344017487267121, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
-      propertyPath: m_Name
-      value: Glutamina
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
---- !u!4 &1286232026 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
+--- !u!4 &1177753471 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2083542841945598604, guid: 2fec3a9e8d1d16142a5f24a450a1420e, type: 3}
-  m_PrefabInstance: {fileID: 1286232025}
+  m_CorrespondingSourceObject: {fileID: 4489142359682738139, guid: 297c1a175e5363943b4b38348856eaeb, type: 3}
+  m_PrefabInstance: {fileID: 1177753470}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1207494693 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 862143405193761517, guid: 442cdb52ee481c542bd0abc7b38cb411, type: 3}
+  m_PrefabInstance: {fileID: 7065080293994386741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1419322185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1419322186}
+  m_Layer: 0
+  m_Name: Models
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1419322186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419322185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 34.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 767235361}
+  - {fileID: 1539863428}
+  - {fileID: 591616819}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539863427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539863428}
+  - component: {fileID: 1539863431}
+  - component: {fileID: 1539863430}
+  - component: {fileID: 1539863429}
+  m_Layer: 0
+  m_Name: Proteina-Secundaria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1539863428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539863427}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0561655, y: -0.71488863, z: 1.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1177753471}
+  m_Father: {fileID: 1419322186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539863429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539863427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1539863431}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: proteina-estrutura-secundaria
+  mDatasetName: 
+  mCastedBehaviour: {fileID: 1539863431}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1539863430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539863427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 1
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+        m_TargetAssemblyTypeName: TutorialCanvasSteps, Assembly-CSharp
+        m_MethodName: NextPart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1539863431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539863427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  RuntimeCollider: 0
+  mTrackableName: proteina-estrutura-secundaria
+  mInitializedInEditor: 1
+  mDataSetPath: 
+  mAspectRatio: 0.9574468
+  mImageTargetType: 3
+  mWidth: 0.19999999
+  mHeight: 0.19148935
+  mRuntimeTexture: {fileID: 2800000, guid: 222eb619ea233014e9cb55f35979b407, type: 3}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 1539863429}
 --- !u!1 &1568485611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,131 +1709,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781437908}
   m_CullTransparentMesh: 1
---- !u!1 &2061467765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2061467769}
-  - component: {fileID: 2061467768}
-  - component: {fileID: 2061467767}
-  - component: {fileID: 2061467770}
-  m_Layer: 0
-  m_Name: ImageTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2061467767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061467765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StatusFilter: 1
-  UsePoseSmoothing: 0
-  AnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 3.3333333
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.3
-      value: 1
-      inSlope: 3.3333333
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  OnTargetFound:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTargetLost:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2061467768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061467765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PreviewVisible: 1
-  RuntimeOcclusion: 0
-  RuntimeCollider: 0
-  mTrackableName: unityLogo
-  mInitializedInEditor: 1
-  mDataSetPath: 
-  mAspectRatio: 0.56
-  mImageTargetType: 3
-  mWidth: 0.20000002
-  mHeight: 0.11200001
-  mRuntimeTexture: {fileID: 2800000, guid: 9dd086649f85e554e94127d24f593c5a, type: 3}
-  mMotionHint: 1
-  mTrackingOptimization: 0
-  mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 2061467770}
---- !u!4 &2061467769
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061467765}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1286232026}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2061467770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061467765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2061467768}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: unityLogo
-  mDatasetName: 
-  mCastedBehaviour: {fileID: 2061467768}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!1 &2077975308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1835,11 +2092,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4736942896527467233, guid: 62eeaeac3ab185643856b4b5faa74f9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.024
+      value: 0.026
       objectReference: {fileID: 0}
     - target: {fileID: 4736942896527467233, guid: 62eeaeac3ab185643856b4b5faa74f9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.146
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4736942896527467233, guid: 62eeaeac3ab185643856b4b5faa74f9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2095,10 +2352,9 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 860322636}
   - {fileID: 782628378}
-  - {fileID: 2061467769}
-  - {fileID: 767235361}
   - {fileID: 1568485615}
   - {fileID: 3117078237672083228}
   - {fileID: 70228228}
   - {fileID: 475640061}
   - {fileID: 2077975310}
+  - {fileID: 1419322186}
