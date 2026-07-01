@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     // Final Variables
     public static GameController Instance { get; private set; }
 
+    public static string linkCartilha { get; private set; }  = "https://www.exemplo.com.br/artigo_proteina.pdf";
+
     public Dictionary<string, GameObject> prefabs { get; private set; }
 
 
@@ -32,6 +34,8 @@ public class GameController : MonoBehaviour
     //CANVAS
     private GameObject canvas;
     private GameObject loadingCanvas;
+
+    private GameObject returnMenuButton;
 
     private GameObject tutorialCanvas;
     private TMP_Text canvasName;
@@ -89,7 +93,8 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("Loading canvas found: " + loadingCanvas.name);
             loadingCanvas.SetActive(false);
-        }                
+        }   
+        returnMenuButton = GameObject.FindWithTag("ReturnMenuCanvas");             
     }
 
     //Called when a model is selected in the simulation scene
@@ -255,6 +260,11 @@ public class GameController : MonoBehaviour
             canvas.SetActive(!canvas.activeSelf);
             Debug.Log("Changing Canvas Active State to: " + canvas.activeSelf);
         }
+        if (returnMenuButton != null)
+        {
+            returnMenuButton.SetActive(!returnMenuButton.activeSelf);
+            Debug.Log("Changing Return Menu Button Active State to: " + returnMenuButton.activeSelf);
+        }
     }
 
     public void OpenCloseLoadingCanvas()
@@ -355,4 +365,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void DownloadCartilha()
+    {
+        Debug.Log("Abrindo o PDF '" + linkCartilha + "' no navegador nativo...");
+        Application.OpenURL(linkCartilha);
+    }
+
+    public void ReturnMenu()
+    {        
+        SceneManager.LoadScene("Menu");
+    }
 }
