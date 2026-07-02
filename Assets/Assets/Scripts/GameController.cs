@@ -48,8 +48,11 @@ public class GameController : MonoBehaviour
 
     private List<GameObject> selectedPrefabsList;
 
-    // Start is called before the first frame update
+    // METHODS
 
+    // MONOBEHAVIOUR METHODS
+
+    // Start is called before the first frame update
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -74,79 +77,62 @@ public class GameController : MonoBehaviour
         
     }
 
-    // Method to get the canvas and its components
-    public void GetCanvas()
+    // PRIVATE METHODS
+    private void ToggleGameObject(GameObject obj)
     {
-        canvas = GameObject.FindWithTag("Canvas");
-        if (canvas != null)
+        if (obj != null)
         {
-            Debug.Log("Canvas found: " + canvas.name);
-            canvasName = GameObject.FindWithTag("CanvasName").GetComponent<TMP_Text>();
-            toolTip = GameObject.FindWithTag("Tooltip");
-            if(toolTip != null)
-            {
-                toolTipText = toolTip.GetComponentInChildren<TMP_Text>();
-            }
+            obj.SetActive(!obj.activeSelf);
+            Debug.Log("Changing " + obj.name + " Active State to: " + obj.activeSelf);
         }
-        loadingCanvas = GameObject.FindWithTag("Loading");
-        if(loadingCanvas != null)
-        {
-            Debug.Log("Loading canvas found: " + loadingCanvas.name);
-            loadingCanvas.SetActive(false);
-        }   
-        returnMenuButton = GameObject.FindWithTag("ReturnMenuCanvas");             
     }
 
-    //Called when a model is selected in the simulation scene
-    public void SelectModel(GameObject model)
+    private void InitiatePrefabsDictionary()
+    {
+        selectedPrefabsList = isUsingHighQualityModels ? prefabsListHighQuality : prefabsListLowQuality;
+        prefabs = new Dictionary<string, GameObject>();        
+        foreach (GameObject prefab in selectedPrefabsList)
+        {
+            if (prefab == null || prefabs.ContainsKey(prefab.GetComponent<ModelController>().modelData.id)) continue;
+            prefabs.Add(prefab.GetComponent<ModelController>().modelData.id, prefab);
+        }
+    }
+
+    private void CheckFirstTimeTutorials(ref bool firstTimeTutorial)
+    {
+        if (firstTimeTutorial && activeTutorials)
+        {
+            tutorialCanvas = GameObject.FindWithTag("CanvasTutorial");
+            if (tutorialCanvas != null)
+            {
+                tutorialCanvas.SetActive(true);
+                Debug.Log("Tutorial canvas found: " + tutorialCanvas.name);
+            }
+            else
+            {
+                Debug.LogWarning("Tutorial canvas not found.");
+            }          
+            firstTimeTutorial = false;              
+        }
+    }
+
+    //Called when the detailed model scene is loaded for preparing the scene
+    private void InstantiateModel(Scene scene, LoadSceneMode mode)
     {        
-        Debug.Log("Selecting model: " + model.name);
-        string modelId = model.GetComponent<ModelController>().modelData.id;
-        if (modelId != selectedModel?.GetComponent<ModelController>().modelData.id)
-        {
-            selectedSceneModel = model;
-            selectedModel = prefabs[modelId];
-            UpdateCanvas();
-            if(toolTip != null)
-            {
-                toolTipText.text = "Rotacione o modelo para vê-lo de outros ângulos.";
-            }
-        }
-        if (canvas != null && !canvas.activeSelf)
-        {
-            OpenCloseCanvas();
-        }
-        OutlineObject();
-    }
-
-    //Called when the simulation scene is loaded for preparing the scene
-    private void StartSimulation(Scene scene, LoadSceneMode mode)
-    {
-        InitiatePrefabsDictionary();
-        Debug.Log("Starting simulation scene");
+        CheckFirstTimeTutorials(ref firstTimeTutorialDetailed);
+        Debug.Log("Instantiating model: " + selectedModel?.name);        
+        GameObject selector = GameObject.FindWithTag("Selector");
+        GameObject model = Instantiate(selectedModel);
+        model.transform.position = selector.transform.position;
+        selectedSceneModel = model;
         GetCanvas();
-        OpenCloseCanvas();
-        CheckFirstTimeTutorials(ref firstTimeTutorialSimulation);
-        selectedModel = null;
-        selectedSceneModel = null;
-        VuforiaApplication.Instance.OnVuforiaStarted +=
-        () =>
+        UpdateCanvas();
+        if(!activeTutorials)
         {
-            var targetFps = VuforiaBehaviour.Instance.CameraDevice.GetRecommendedFPS();
-            if (UnityEngine.Application.targetFrameRate != targetFps)
-            {
-                Debug.Log("Setting frame rate to " + targetFps + "fps");
-                UnityEngine.Application.targetFrameRate = targetFps;
-            }
-        };
-        SceneManager.sceneLoaded -= StartSimulation;
-    }
-
-    //Called for loading the simulation scene
-    public void LoadSimulation()
-    {
-        Debug.Log("Loading Simulation Scene");
-        StartCoroutine(LoadSceneAsync("CameraView"));                        
+            OpenCloseTooltip();
+            activeTutorials = false;
+        }
+        SceneManager.sceneLoaded -= InstantiateModel;
     }
 
     private IEnumerator AnimateLoading(float previousFramePercentage, float percentage, AsyncOperation asyncLoad, LoadingCanvasController loadingCanvasController)
@@ -163,15 +149,15 @@ public class GameController : MonoBehaviour
             }
             previousFramePercentage = loadingCanvasController.progress;
         }
-    }
+    } 
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {            
         if (loadingCanvas != null)
-        {
+        {            
+            SceneManager.sceneLoaded += StartSimulation;    
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);  
             asyncLoad.allowSceneActivation = false;
-            SceneManager.sceneLoaded += StartSimulation;    
             Debug.Log("Showing loading canvas for scene: " + sceneName);
             loadingCanvas.SetActive(true);
             OpenCloseCanvas();
@@ -201,33 +187,34 @@ public class GameController : MonoBehaviour
                 yield return null;                
             }                                               
         }                
-    }
+    }   
 
-    //Called when the detailed model is closed for returning to the simulation scene
-    public void UndetailModel()
+    //Called when the simulation scene is loaded for preparing the scene
+    private void StartSimulation(Scene scene, LoadSceneMode mode)
     {
-        Destroy(GameObject.FindWithTag("TargetModel"));
-        LoadSimulation();
+        InitiatePrefabsDictionary();
+        Debug.Log("Starting simulation scene");
+        GetCanvas();
+        OpenCloseCanvas();
+        OpenCloseTooltip();
+        Debug.Log("I Passed all Canvas and Tooltip checks");
+        CheckFirstTimeTutorials(ref firstTimeTutorialSimulation);
+        selectedModel = null;
+        selectedSceneModel = null;
+        VuforiaApplication.Instance.OnVuforiaStarted +=
+        () =>
+        {
+            var targetFps = VuforiaBehaviour.Instance.CameraDevice.GetRecommendedFPS();
+            if (UnityEngine.Application.targetFrameRate != targetFps)
+            {
+                Debug.Log("Setting frame rate to " + targetFps + "fps");
+                UnityEngine.Application.targetFrameRate = targetFps;
+            }
+        };
+        SceneManager.sceneLoaded -= StartSimulation;
     }
 
-    //Called when the detailed model scene is loaded for preparing the scene
-    private void InstantiateModel(Scene scene, LoadSceneMode mode)
-    {        
-        CheckFirstTimeTutorials(ref firstTimeTutorialDetailed);
-        Debug.Log("Instantiating model: " + selectedModel?.name);        
-        GameObject selector = GameObject.FindWithTag("Selector");
-        GameObject model = Instantiate(selectedModel);
-        model.transform.position = selector.transform.position;
-        selectedSceneModel = model;
-        GetCanvas();
-        UpdateCanvas();
-        if(!activeTutorials)
-        {
-            OpenCloseTooltip();
-            activeTutorials = false;
-        }
-        SceneManager.sceneLoaded -= InstantiateModel;
-    }
+    // PUBLIC METHODS
 
     //Called for loading the detailed model scene
     public void DetailModel()
@@ -238,6 +225,13 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene("DetailedView");
             SceneManager.sceneLoaded += InstantiateModel;
         }
+    }
+
+    //Called when the detailed model is closed for returning to the simulation scene
+    public void UndetailModel()
+    {
+        Destroy(GameObject.FindWithTag("TargetModel"));
+        LoadSimulation();
     }
 
     //Called for reset the selected model rotation
@@ -255,26 +249,14 @@ public class GameController : MonoBehaviour
     public void OpenCloseCanvas()
     {
         Debug.Log("Toggling Canvas Active State");
-        if (canvas != null)
-        {
-            canvas.SetActive(!canvas.activeSelf);
-            Debug.Log("Changing Canvas Active State to: " + canvas.activeSelf);
-        }
-        if (returnMenuButton != null)
-        {
-            returnMenuButton.SetActive(!returnMenuButton.activeSelf);
-            Debug.Log("Changing Return Menu Button Active State to: " + returnMenuButton.activeSelf);
-        }
+        ToggleGameObject(canvas);
+        ToggleGameObject(returnMenuButton);
     }
 
     public void OpenCloseLoadingCanvas()
     {
         Debug.Log("Toggling Loading Canvas Active State");
-        if (loadingCanvas != null)
-        {
-            loadingCanvas.SetActive(!loadingCanvas.activeSelf);
-            Debug.Log("Changing Loading Canvas Active State to: " + loadingCanvas.activeSelf);
-        }
+        ToggleGameObject(loadingCanvas);
     }
 
     //Called to update the canvas name based on the selected model
@@ -290,6 +272,13 @@ public class GameController : MonoBehaviour
             }
         }
 
+    }
+
+    //Called for loading the simulation scene
+    public void LoadSimulation()
+    {
+        Debug.Log("Loading Simulation Scene");
+        StartCoroutine(LoadSceneAsync("CameraView"));                        
     }
 
     //Called to activate and deactivate outline on SelectedSceneModel
@@ -310,11 +299,7 @@ public class GameController : MonoBehaviour
     public void OpenCloseTooltip()
     {        
         Debug.Log("Toggling Tooltip Active State");
-        if (toolTip != null)
-        {
-            toolTip.SetActive(!toolTip.activeSelf);
-            Debug.Log("Changing Tooltip Active State to: " + toolTip.activeSelf);
-        }
+        ToggleGameObject(toolTip);
     }
     
     public void ResetTooltip()
@@ -324,7 +309,6 @@ public class GameController : MonoBehaviour
             toolTipText.text = "Posicione a Câmera em um Marcador e toque no modelo para ver informações.";
         }
     }
-   
 
     public void ToggleHighQualityModels()
     {
@@ -336,35 +320,6 @@ public class GameController : MonoBehaviour
         activeTutorials = !activeTutorials;       
     }
 
-    private void InitiatePrefabsDictionary()
-    {
-        selectedPrefabsList = isUsingHighQualityModels ? prefabsListHighQuality : prefabsListLowQuality;
-        prefabs = new Dictionary<string, GameObject>();        
-        foreach (GameObject prefab in selectedPrefabsList)
-        {
-            if (prefab == null || prefabs.ContainsKey(prefab.GetComponent<ModelController>().modelData.id)) continue;
-            prefabs.Add(prefab.GetComponent<ModelController>().modelData.id, prefab);
-        }
-    }
-
-    private void CheckFirstTimeTutorials(ref bool firstTimeTutorial)
-    {
-        if (firstTimeTutorial && activeTutorials)
-        {
-            tutorialCanvas = GameObject.FindWithTag("Tutorial");
-            if (tutorialCanvas != null)
-            {
-                tutorialCanvas.SetActive(true);
-                Debug.Log("Tutorial canvas found: " + tutorialCanvas.name);
-            }
-            else
-            {
-                Debug.LogWarning("Tutorial canvas not found.");
-            }          
-            firstTimeTutorial = false;              
-        }
-    }
-
     public void DownloadCartilha()
     {
         Debug.Log("Abrindo o PDF '" + linkCartilha + "' no navegador nativo...");
@@ -374,5 +329,47 @@ public class GameController : MonoBehaviour
     public void ReturnMenu()
     {        
         SceneManager.LoadScene("Menu");
+    }
+
+    // Method to get the canvas and its components
+    public void GetCanvas()
+    {
+        canvas = GameObject.FindWithTag("Canvas");
+        if (canvas != null)
+        {
+            Debug.Log("Canvas found: " + canvas.name);
+            canvasName = GameObject.FindWithTag("CanvasName").GetComponent<TMP_Text>();
+            toolTip = GameObject.FindWithTag("Tooltip");
+            if(toolTip != null)
+            {
+                toolTipText = toolTip.GetComponentInChildren<TMP_Text>();
+            }
+        }
+        loadingCanvas = GameObject.FindWithTag("Loading");
+        ToggleGameObject(loadingCanvas);
+        returnMenuButton = GameObject.FindWithTag("CanvasReturnMenu");
+        ToggleGameObject(returnMenuButton);         
+    }
+
+    //Called when a model is selected in the simulation scene
+    public void SelectModel(GameObject model)
+    {        
+        Debug.Log("Selecting model: " + model.name);
+        string modelId = model.GetComponent<ModelController>().modelData.id;
+        if (modelId != selectedModel?.GetComponent<ModelController>().modelData.id)
+        {
+            selectedSceneModel = model;
+            selectedModel = prefabs[modelId];
+            UpdateCanvas();
+            if(toolTip != null)
+            {
+                toolTipText.text = "Rotacione o modelo para vê-lo de outros ângulos.";
+            }
+        }
+        if (canvas != null && !canvas.activeSelf)
+        {
+            OpenCloseCanvas();
+        }
+        OutlineObject();
     }
 }
