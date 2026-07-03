@@ -87,6 +87,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Initialize the prefabs dictionary based on the selected quality
     private void InitiatePrefabsDictionary()
     {
         selectedPrefabsList = isUsingHighQualityModels ? prefabsListHighQuality : prefabsListLowQuality;
@@ -98,6 +99,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Check if it's the first time the tutorials are being shown and activate the tutorial canvas if necessary
     private void CheckFirstTimeTutorials(ref bool firstTimeTutorial)
     {
         if (firstTimeTutorial && activeTutorials)
@@ -135,6 +137,7 @@ public class GameController : MonoBehaviour
         SceneManager.sceneLoaded -= InstantiateModel;
     }
 
+    // Coroutine for animating the loading canvas progress bar
     private IEnumerator AnimateLoading(float previousFramePercentage, float percentage, AsyncOperation asyncLoad, LoadingCanvasController loadingCanvasController)
     {
         float time = 0f;        
@@ -151,6 +154,7 @@ public class GameController : MonoBehaviour
         }
     } 
 
+    // Coroutine for loading the simulation scene asynchronously with a loading canvas
     private IEnumerator LoadSceneAsync(string sceneName)
     {            
         if (loadingCanvas != null)
@@ -253,6 +257,7 @@ public class GameController : MonoBehaviour
         ToggleGameObject(returnMenuButton);
     }
 
+    // Called to open or close the loading canvas
     public void OpenCloseLoadingCanvas()
     {
         Debug.Log("Toggling Loading Canvas Active State");
@@ -296,12 +301,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Called to open or close the tooltip
     public void OpenCloseTooltip()
     {        
         Debug.Log("Toggling Tooltip Active State");
         ToggleGameObject(toolTip);
     }
     
+    // Called to reset the tooltip text to its default value
     public void ResetTooltip()
     {
         if (toolTipText != null)
@@ -310,6 +317,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // Called to toggle between high quality and low quality models
     public void ToggleHighQualityModels()
     {
         isUsingHighQualityModels = !isUsingHighQualityModels;        
@@ -320,12 +328,14 @@ public class GameController : MonoBehaviour
         activeTutorials = !activeTutorials;       
     }
 
+    // Called to open the PDF link in the native browser and download it
     public void DownloadCartilha()
     {
         Debug.Log("Abrindo o PDF '" + linkCartilha + "' no navegador nativo...");
         Application.OpenURL(linkCartilha);
     }
 
+    // Called to return to the main menu scene
     public void ReturnMenu()
     {        
         SceneManager.LoadScene("Menu");
