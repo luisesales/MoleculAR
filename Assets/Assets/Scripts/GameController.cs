@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     private GameObject canvas;
     private GameObject loadingCanvas;
 
-    private GameObject returnMenuButton;
+    private GameObject returnMenuCanvas;
 
     private GameObject tutorialCanvas;
     private TMP_Text canvasName;
@@ -199,7 +199,7 @@ public class GameController : MonoBehaviour
         InitiatePrefabsDictionary();
         Debug.Log("Starting simulation scene");
         GetCanvas();
-        OpenCloseCanvas();
+        OpenCloseCanvas();        
         OpenCloseTooltip();
         Debug.Log("I Passed all Canvas and Tooltip checks");
         CheckFirstTimeTutorials(ref firstTimeTutorialSimulation);
@@ -254,7 +254,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Toggling Canvas Active State");
         ToggleGameObject(canvas);
-        ToggleGameObject(returnMenuButton);
+        ToggleGameObject(returnMenuCanvas);
     }
 
     // Called to open or close the loading canvas
@@ -357,8 +357,8 @@ public class GameController : MonoBehaviour
         }
         loadingCanvas = GameObject.FindWithTag("Loading");
         ToggleGameObject(loadingCanvas);
-        returnMenuButton = GameObject.FindWithTag("CanvasReturnMenu");
-        ToggleGameObject(returnMenuButton);         
+        returnMenuCanvas = GameObject.FindWithTag("CanvasReturnMenu");
+        ToggleGameObject(returnMenuCanvas);         
     }
 
     //Called when a model is selected in the simulation scene
