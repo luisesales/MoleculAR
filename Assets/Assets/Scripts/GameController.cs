@@ -54,16 +54,13 @@ public class GameController : MonoBehaviour
 
     // Start is called before the first frame update
     void Awake()
-    {
+    {        
         if (Instance != null && Instance != this)
         {
-
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
+            Destroy(gameObject);            
+            return;
+        }                
+        Instance = this;        
         DontDestroyOnLoad(gameObject);
     }
 
@@ -72,8 +69,11 @@ public class GameController : MonoBehaviour
         // Initialize selectedModel to null
         selectedModel = null;
 
+        // Locks Screen Rotation
+        Screen.orientation = ScreenOrientation.Portrait;
+
         // Get the canvas and its components
-        GetCanvas();
+        
         
     }
 
@@ -102,9 +102,9 @@ public class GameController : MonoBehaviour
     // Check if it's the first time the tutorials are being shown and activate the tutorial canvas if necessary
     private void CheckFirstTimeTutorials(ref bool firstTimeTutorial)
     {
+        tutorialCanvas = GameObject.FindWithTag("CanvasTutorial");
         if (firstTimeTutorial && activeTutorials)
-        {
-            tutorialCanvas = GameObject.FindWithTag("CanvasTutorial");
+        {            
             if (tutorialCanvas != null)
             {
                 tutorialCanvas.SetActive(true);
@@ -114,8 +114,11 @@ public class GameController : MonoBehaviour
             {
                 Debug.LogWarning("Tutorial canvas not found.");
             }          
-            firstTimeTutorial = false;              
+            firstTimeTutorial = false;       
+            return;       
         }
+        ToggleGameObject(tutorialCanvas);
+
     }
 
     //Called when the detailed model scene is loaded for preparing the scene
@@ -129,11 +132,7 @@ public class GameController : MonoBehaviour
         selectedSceneModel = model;
         GetCanvas();
         UpdateCanvas();
-        if(!activeTutorials)
-        {
-            OpenCloseTooltip();
-            activeTutorials = false;
-        }
+        OpenCloseTooltip();
         SceneManager.sceneLoaded -= InstantiateModel;
     }
 
@@ -175,7 +174,8 @@ public class GameController : MonoBehaviour
                     Debug.Log("Finalizing loading canvas animation for scene: " + sceneName);            
                     yield return AnimateLoading(previousFramePercentage, percentage, asyncLoad, loadingCanvasController);
                     previousFramePercentage = loadingCanvasController.progress;            
-                    asyncLoad.allowSceneActivation = true;         
+                    asyncLoad.allowSceneActivation = true;   
+                    loadingCanvas.SetActive(false);                                                  
                 }
                 if(loadingCanvasController.progress != previousFramePercentage)
                 {
@@ -189,7 +189,7 @@ public class GameController : MonoBehaviour
                 }         
                 loadingCanvasController.progress = percentage;
                 yield return null;                
-            }                                               
+            }               
         }                
     }   
 
@@ -326,6 +326,7 @@ public class GameController : MonoBehaviour
     public void ToggleTutorials()
     {
         activeTutorials = !activeTutorials;       
+        Debug.Log("" + activeTutorials);
     }
 
     // Called to open the PDF link in the native browser and download it
