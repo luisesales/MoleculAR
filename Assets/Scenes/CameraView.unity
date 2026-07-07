@@ -691,14 +691,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: proteina-estrutura-terciaria-quaternaria
+  mTrackableName: 8c71585dab5d9c39242bd3e80f3418f8
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 0.962766
+  mAspectRatio: 1
   mImageTargetType: 3
   mWidth: 0.19999999
-  mHeight: 0.19255319
-  mRuntimeTexture: {fileID: 2800000, guid: ddb37a45b2c1e2a40ada8c4dabd03168, type: 3}
+  mHeight: 0.19999999
+  mRuntimeTexture: {fileID: 2800000, guid: f4d72fdd9e1b01a40892eb1f689665c0, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 767235360}
   mHiddenRoot: {fileID: 0}
-  mTargetName: proteina-estrutura-terciaria-quaternaria
+  mTargetName: 8c71585dab5d9c39242bd3e80f3418f8
   mDatasetName: 
   mCastedBehaviour: {fileID: 767235360}
   mMeshFilter: {fileID: 0}

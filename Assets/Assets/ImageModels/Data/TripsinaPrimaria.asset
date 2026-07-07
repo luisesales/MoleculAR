@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4b8054abdce954e830359b1638a240, type: 3}
-  m_Name: Tripsina
+  m_Name: TripsinaPrimaria
   m_EditorClassIdentifier: 
-  name: Tripsina
-  scientificalName: Tripsina
+  name: 'Tripsina '
+  scientificalName: 'Tripsina '
+  maxZoomIn: -5
+  maxZoomOut: -10

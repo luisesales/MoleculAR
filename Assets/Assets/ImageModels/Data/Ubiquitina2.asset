@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ubiquitina2
   scientificalName: Ubiquitina2
+  maxZoomIn: -5
+  maxZoomOut: -10

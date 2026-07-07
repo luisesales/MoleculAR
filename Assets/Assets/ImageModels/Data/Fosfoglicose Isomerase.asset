@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fofoglicose Isomerase
   scientificalName: Fofoglicose Isomerase
+  maxZoomIn: -5
+  maxZoomOut: -10

@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992bb33f9edeb0c44a04ba4581027269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelData: {fileID: 11400000, guid: 02db63a9d003e5047b3806c7335cec00, type: 2}
+  modelData: {fileID: 11400000, guid: 1b81c2f6d54ef084bbd02a442cb885f6, type: 2}
   isActive: 0
   rotationSpeed: 0.5
   check: 1
