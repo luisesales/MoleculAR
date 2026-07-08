@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: L-Alanina
   scientificalName: L-Alanina
-  maxZoomIn: -5
-  maxZoomOut: -10
+  maxZoomIn: 5
+  maxZoomOut: 5

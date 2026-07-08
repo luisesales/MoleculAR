@@ -235,6 +235,10 @@ public class GameController : MonoBehaviour
     public void UndetailModel()
     {
         Destroy(GameObject.FindWithTag("TargetModel"));
+        if (toolTip != null && toolTip.activeSelf)
+        {
+            toolTip.SetActive(false);
+        }
         LoadSimulation();
     }
 
