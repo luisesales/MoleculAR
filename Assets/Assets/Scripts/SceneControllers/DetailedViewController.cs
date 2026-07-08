@@ -22,32 +22,32 @@ public class DetailedViewController : MonoBehaviour
     public void Update()
     {
         //Mobile
-        // if (Input.touchCount == 2)
-        // {
-        //     Touch touchZero = Input.GetTouch(0);
-        //     Touch touchOne = Input.GetTouch(1);
+        if (Input.touchCount == 2)
+        {
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
 
-        //     Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
-        //     Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+            Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+            Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
-        //     float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
-        //     float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
+            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+            float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
             
-        //     float difference = currentMagnitude - prevMagnitude;
+            float difference = currentMagnitude - prevMagnitude;
                         
-        //     currentDistance = Mathf.Clamp(currentDistance + (difference * zoomSensitivity), -maxZoomOut, maxZoomIn);
-        //     mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, Mathf.Clamp(currentDistance + (mainCamera.transform.position.z * currentDistance), -maxZoomOut, maxZoomIn) * zoomSensitivity);
-        // }
+            currentDistance = Mathf.Clamp(currentDistance + (difference * zoomSensitivity), -maxZoomOut, maxZoomIn);
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, Mathf.Clamp(currentDistance + (mainCamera.transform.position.z * currentDistance), -maxZoomOut, maxZoomIn) * zoomSensitivity);
+        }
 
 
 
         //PC
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(scroll);        
-        currentDistance = currentDistance - scroll * zoomSensitivity; 
-        Debug.Log("Current Distance : "+ currentDistance);        
+        // float scroll = Input.GetAxis("Mouse ScrollWheel");
+        // Debug.Log(scroll);        
+        // currentDistance = currentDistance - scroll * zoomSensitivity; 
+        // Debug.Log("Current Distance : "+ currentDistance);        
         
-        mainCamera.transform.position = startingPosition + (mainCamera.transform.forward * currentDistance); 
+        // mainCamera.transform.position = startingPosition + (mainCamera.transform.forward * currentDistance); 
     }
 
     public void Return()
@@ -59,5 +59,10 @@ public class DetailedViewController : MonoBehaviour
     {
         GameController.Instance.ResetModel();
         mainCamera.transform.position = startingPosition;
+    }
+
+    public void OpenCloseTooltip()
+    {
+        GameController.Instance.OpenCloseTooltip();        
     }
 }
