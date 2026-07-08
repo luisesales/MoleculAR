@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 591616822}
   mHiddenRoot: {fileID: 0}
-  mTargetName: proteina-estrutura-primaria
+  mTargetName: Tripsina
   mDatasetName: 
   mCastedBehaviour: {fileID: 591616822}
   mMeshFilter: {fileID: 0}
@@ -447,14 +447,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: proteina-estrutura-primaria
+  mTrackableName: Tripsina
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 0.9716312
+  mAspectRatio: 1
   mImageTargetType: 3
   mWidth: 0.19999999
-  mHeight: 0.19432624
-  mRuntimeTexture: {fileID: 2800000, guid: 95f0a65e77416a84fa879293cfb8c6fa, type: 3}
+  mHeight: 0.19999999
+  mRuntimeTexture: {fileID: 2800000, guid: b10c8da3f9e393a4fa47d6871d335ed4, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -691,14 +691,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: 8c71585dab5d9c39242bd3e80f3418f8
+  mTrackableName: Tripsina-Terciario-Quaternario
   mInitializedInEditor: 1
   mDataSetPath: 
   mAspectRatio: 1
   mImageTargetType: 3
   mWidth: 0.19999999
   mHeight: 0.19999999
-  mRuntimeTexture: {fileID: 2800000, guid: f4d72fdd9e1b01a40892eb1f689665c0, type: 3}
+  mRuntimeTexture: {fileID: 2800000, guid: 6fd23da5094016541b657c3ff0ca3832, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 767235360}
   mHiddenRoot: {fileID: 0}
-  mTargetName: 8c71585dab5d9c39242bd3e80f3418f8
+  mTargetName: Tripsina-Terciario-Quaternario
   mDatasetName: 
   mCastedBehaviour: {fileID: 767235360}
   mMeshFilter: {fileID: 0}
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1539863431}
   mHiddenRoot: {fileID: 0}
-  mTargetName: proteina-estrutura-secundaria
+  mTargetName: Glucagon-Secundario
   mDatasetName: 
   mCastedBehaviour: {fileID: 1539863431}
   mMeshFilter: {fileID: 0}
@@ -1253,14 +1253,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: proteina-estrutura-secundaria
+  mTrackableName: Glucagon-Secundario
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 0.9574468
+  mAspectRatio: 1
   mImageTargetType: 3
   mWidth: 0.19999999
-  mHeight: 0.19148935
-  mRuntimeTexture: {fileID: 2800000, guid: 222eb619ea233014e9cb55f35979b407, type: 3}
+  mHeight: 0.19999999
+  mRuntimeTexture: {fileID: 2800000, guid: 6dffc8bb1070a78499e56e4bdf4b8276, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
