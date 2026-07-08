@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 'Tripsina '
   scientificalName: 'Tripsina '
-  maxZoomIn: -5
-  maxZoomOut: -10
+  maxZoomIn: 5
+  maxZoomOut: 5

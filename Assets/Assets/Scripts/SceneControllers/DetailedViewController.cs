@@ -11,15 +11,16 @@ public class DetailedViewController : MonoBehaviour
     private GameObject mainCamera;
     private Vector3 startingPosition;
     private float currentDistance = 0f;
-    public void Start()
+    void Start()
     {
         mainCamera = Camera.main.gameObject;
+        currentDistance = mainCamera.transform.position.z;
         startingPosition = mainCamera.transform.position;
         maxZoomIn = GameController.Instance.selectedModel.GetComponent<ModelController>().modelData.maxZoomIn;
         maxZoomOut = GameController.Instance.selectedModel.GetComponent<ModelController>().modelData.maxZoomOut;
     }
 
-    public void Update()
+    void Update()
     {
         //Mobile
         if (Input.touchCount == 2)
@@ -35,8 +36,8 @@ public class DetailedViewController : MonoBehaviour
             
             float difference = currentMagnitude - prevMagnitude;
                         
-            currentDistance = Mathf.Clamp(currentDistance + (difference * zoomSensitivity), -maxZoomOut, maxZoomIn);
-            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, Mathf.Clamp(currentDistance + (mainCamera.transform.position.z * currentDistance), -maxZoomOut, maxZoomIn) * zoomSensitivity);
+            currentDistance = Mathf.Clamp(currentDistance + (difference * zoomSensitivity), currentDistance -maxZoomOut, currentDistance + maxZoomIn);
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, currentDistance);
         }
 
 
