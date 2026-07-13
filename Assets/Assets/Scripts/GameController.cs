@@ -46,6 +46,8 @@ public class GameController : MonoBehaviour
     private bool firstTimeTutorialSimulation = true;
     private bool firstTimeTutorialDetailed = true;
 
+    private bool tutorialCompleted = false;
+
     private List<GameObject> selectedPrefabsList;
 
     // METHODS
@@ -114,7 +116,8 @@ public class GameController : MonoBehaviour
             {
                 Debug.LogWarning("Tutorial canvas not found.");
             }          
-            firstTimeTutorial = false;       
+            firstTimeTutorial = false;      
+            tutorialCompleted = false; 
             return;       
         }
         ToggleGameObject(tutorialCanvas);
@@ -195,7 +198,7 @@ public class GameController : MonoBehaviour
 
     //Called when the simulation scene is loaded for preparing the scene
     private void StartSimulation(Scene scene, LoadSceneMode mode)
-    {
+    {        
         InitiatePrefabsDictionary();
         Debug.Log("Starting simulation scene");
         GetCanvas();
@@ -369,6 +372,15 @@ public class GameController : MonoBehaviour
     //Called when a model is selected in the simulation scene
     public void SelectModel(GameObject model)
     {        
+        if(!tutorialCompleted)
+        {
+            Debug.Log("First time tutorial simulation engaged.");
+            if(tutorialCanvas != null)
+            {
+                Debug.Log("Tutorial canvas found for simulation tutorial: " + tutorialCanvas.name);
+                tutorialCompleted = tutorialCanvas.GetComponent<TutorialCanvasSteps>().NextPart();                
+            }
+        }
         Debug.Log("Selecting model: " + model.name);
         string modelId = model.GetComponent<ModelController>().modelData.id;
         if (modelId != selectedModel?.GetComponent<ModelController>().modelData.id)

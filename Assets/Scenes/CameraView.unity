@@ -393,18 +393,6 @@ MonoBehaviour:
   OnTargetFound:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-        m_TargetAssemblyTypeName: TutorialCanvasSteps, Assembly-CSharp
-        m_MethodName: NextPart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 324283474}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1199,18 +1187,6 @@ MonoBehaviour:
   OnTargetFound:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-        m_TargetAssemblyTypeName: TutorialCanvasSteps, Assembly-CSharp
-        m_MethodName: NextPart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1177753472}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2111,6 +2087,23 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -296
       objectReference: {fileID: 0}
+    - target: {fileID: 1333650822809297443, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777897542272662344, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738081224507702518, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092494204923977347, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_text
+      value: "Aqui Iniciaremos o tutorial para usar as fun\xE7\xF5es b\xE1sicas do
+        APP                                 "
+      objectReference: {fileID: 0}
     - target: {fileID: 3145292894428216860, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 2440
@@ -2194,6 +2187,15 @@ PrefabInstance:
     - target: {fileID: 6684195164225380349, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263118455889724043, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_text
+      value: "Para visualizar um modelo posicione a c\xE2mera sobre um marcador da
+        Cartilha"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7983147060751058002, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8307519770799620581, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_Name

@@ -530,13 +530,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263118455889724043, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_text
-      value: "voc\xEA possuia as mesmas fun\xE7\xF5es de qunado voc\xEA posiciona
-        a camera sobre um marcador e seleciona o modelo na tela de c\xE2mera do dispositivo"
+      value: "Voc\xEA possui as mesmas fun\xE7\xF5es de qunado voc\xEA posiciona
+        a camera sobre um marcador e seleciona o modelo na parte da simula\xE7\xE3o
+        com a c\xE2mera do dispositivo"
       objectReference: {fileID: 0}
     - target: {fileID: 7728102996751479017, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_text
       value: "Al\xE9m disso voc\xEA possui uma fun\xE7\xE3o de dar zoom nos modelos
-        para visualiz\xE1-los mais de perto e perceber detlahes que passaram despercebidos"
+        para visualiz\xE1-los mais de perto e perceber detalhes que passaram despercebidos"
       objectReference: {fileID: 0}
     - target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: tutorialParts.Array.size
