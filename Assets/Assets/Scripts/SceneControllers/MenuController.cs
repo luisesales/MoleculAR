@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
-{
-
-     void Start()
-    {
-        GameController.Instance.GetCanvas();
-    }
+{ 
     public void StartApplication()
     {
         GameController.Instance.LoadSimulation();

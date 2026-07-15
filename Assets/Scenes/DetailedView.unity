@@ -434,11 +434,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 269184764157524261, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -296
+      value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 638969452501153045, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -296
+      value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 3092494204923977347, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_text
@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8946861515620601590, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -296
+      value: -320
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -899,6 +899,10 @@ PrefabInstance:
         afaste para dar zoom."
       objectReference: {fileID: 0}
     - target: {fileID: 3497108539152361966, guid: d0f3a778120178c45a9a6ac5caf9ede9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
+    - target: {fileID: 3497108539152361966, guid: d0f3a778120178c45a9a6ac5caf9ede9, type: 3}
       propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -911,8 +915,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3497108539152361966, guid: d0f3a778120178c45a9a6ac5caf9ede9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4663886663693368258, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
+    - target: {fileID: 3497108539152361966, guid: d0f3a778120178c45a9a6ac5caf9ede9, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497108539152361966, guid: d0f3a778120178c45a9a6ac5caf9ede9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3889090024781579606, guid: d0f3a778120178c45a9a6ac5caf9ede9, type: 3}
       propertyPath: m_Name

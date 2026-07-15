@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
 
     // Changeable Variables
     public GameObject selectedModel { get; private set; }
+
+    public bool activeTutorials { get; private set; } = false;
     private GameObject selectedSceneModel;
 
     private bool isUsingHighQualityModels = false;    
@@ -41,8 +43,8 @@ public class GameController : MonoBehaviour
     private TMP_Text canvasName;
     private GameObject toolTip;
     private TMP_Text toolTipText;
-
-    private bool activeTutorials = true;
+    
+    private GameObject toggleTutorialsButton;
     private bool firstTimeTutorialSimulation = true;
     private bool firstTimeTutorialDetailed = true;
 
@@ -74,9 +76,8 @@ public class GameController : MonoBehaviour
         // Locks Screen Rotation
         Screen.orientation = ScreenOrientation.Portrait;
 
-        // Get the canvas and its components
-        
-        
+        // Starts Menu Scene
+        SetupMenu();      
     }
 
     // PRIVATE METHODS
@@ -105,7 +106,7 @@ public class GameController : MonoBehaviour
     private void CheckFirstTimeTutorials(ref bool firstTimeTutorial)
     {
         tutorialCanvas = GameObject.FindWithTag("CanvasTutorial");
-        if (firstTimeTutorial && activeTutorials)
+        if (activeTutorials && firstTimeTutorial)
         {            
             if (tutorialCanvas != null)
             {
@@ -118,16 +119,42 @@ public class GameController : MonoBehaviour
             }          
             firstTimeTutorial = false;      
             tutorialCompleted = false; 
+            Debug.Log("First time tutorial engaged. Setting firstTimeTutorial to false and tutorialCompleted to false on " + firstTimeTutorial.GetType().Name);
             return;       
         }
+        Debug.Log("Tutorials are not active or have already been shown.");
         ToggleGameObject(tutorialCanvas);
 
+    }
+    
+    // Called to Setup the Menu Scene 
+    private void SetupMenu()
+    {
+        Debug.Log("Setting up Menu Scene");
+        GetCanvas();       
+        toggleTutorialsButton = GameObject.FindWithTag("CanvasToggleTutorial");
+        if (toggleTutorialsButton != null)
+        {
+            toggleTutorialsButton.GetComponent<UnityEngine.UI.Toggle>().SetIsOnWithoutNotify(activeTutorials);
+        }
+        else
+        {
+            Debug.LogWarning("Toggle Tutorials Button not found in the Menu scene.");
+        }
+        
+    }
+
+    // Called when the menu scene is loaded and called by SceneManager.sceneLoaded 
+    private void StartMenu(Scene scene, LoadSceneMode mode)
+    {
+       SetupMenu();
+       SceneManager.sceneLoaded -= StartMenu;
     }
 
     //Called when the detailed model scene is loaded for preparing the scene
     private void InstantiateModel(Scene scene, LoadSceneMode mode)
     {        
-        CheckFirstTimeTutorials(ref firstTimeTutorialDetailed);
+        CheckFirstTimeTutorials(ref firstTimeTutorialDetailed);        
         Debug.Log("Instantiating model: " + selectedModel?.name);        
         GameObject selector = GameObject.FindWithTag("Selector");
         GameObject model = Instantiate(selectedModel);
@@ -347,6 +374,7 @@ public class GameController : MonoBehaviour
     public void ReturnMenu()
     {        
         SceneManager.LoadScene("Menu");
+        SceneManager.sceneLoaded += StartMenu;
     }
 
     // Method to get the canvas and its components

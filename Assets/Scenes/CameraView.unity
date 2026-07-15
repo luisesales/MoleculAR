@@ -1506,8 +1506,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nome
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
+  m_sharedMaterial: {fileID: 4663886663693368258, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1640,8 +1640,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
+  m_sharedMaterial: {fileID: 4663886663693368258, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1974,6 +1974,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2009763803095212224, guid: 532b790f42f8dc9409a6f40834f02dbe, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
+    - target: {fileID: 2009763803095212224, guid: 532b790f42f8dc9409a6f40834f02dbe, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4663886663693368258, guid: ef365cdb939e2404d9d7affc6103fa88, type: 2}
+    - target: {fileID: 2009763803095212224, guid: 532b790f42f8dc9409a6f40834f02dbe, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3190834385207409882, guid: 532b790f42f8dc9409a6f40834f02dbe, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2079,35 +2091,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 269184764157524261, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -296
-      objectReference: {fileID: 0}
-    - target: {fileID: 638969452501153045, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -296
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333650822809297443, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777897542272662344, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2738081224507702518, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3092494204923977347, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_text
-      value: "Aqui Iniciaremos o tutorial para usar as fun\xE7\xF5es b\xE1sicas do
-        APP                                 "
-      objectReference: {fileID: 0}
-    - target: {fileID: 3145292894428216860, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 2440
-      objectReference: {fileID: 0}
     - target: {fileID: 6684195164225380349, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2188,22 +2171,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7263118455889724043, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_text
-      value: "Para visualizar um modelo posicione a c\xE2mera sobre um marcador da
-        Cartilha"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7983147060751058002, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8307519770799620581, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_Name
       value: TutorialCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946861515620601590, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -296
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

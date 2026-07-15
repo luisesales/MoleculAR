@@ -58,13 +58,17 @@ public class TutorialCanvasSteps : MonoBehaviour
     public bool NextPart()
     {        
         if(currentPart == tutorialParts.Count)            
-            return true;        
-        currentStepIndex = 0;
-        currentStep = tutorialParts[currentPart].transform.GetChild(currentStepIndex).gameObject;
-        foward.SetActive(true);        
-        backwards.SetActive(true);        
+            return true;                                
+        currentStepIndex = 0;        
+        foward.SetActive(true);                        
         background.SetActive(true);
-        tutorialParts[currentPart].SetActive(true);        
+        tutorialParts[currentPart].SetActive(true);  
+        currentStep = tutorialParts[currentPart].transform.GetChild(currentStepIndex).gameObject;     
+        foreach (Transform child in tutorialParts[currentPart].transform)
+        {
+            child.gameObject.SetActive(false);
+        }         
+        currentStep.SetActive(true);
         return false;
     }
 }
