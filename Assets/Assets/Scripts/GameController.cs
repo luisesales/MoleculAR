@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     // Changeable Variables
     public GameObject selectedModel { get; private set; }
 
-    public bool activeTutorials { get; private set; } = false;
+    public bool activeTutorials { get; private set; } = true;
     private GameObject selectedSceneModel;
 
     private bool isUsingHighQualityModels = false;    

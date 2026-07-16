@@ -2091,6 +2091,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3092494204923977347, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_text
+      value: "Aqui iniciaremos o tutorial para usar as fun\xE7\xF5es b\xE1sicas do
+        APP                                 "
+      objectReference: {fileID: 0}
     - target: {fileID: 6684195164225380349, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2170,6 +2175,16 @@ PrefabInstance:
     - target: {fileID: 6684195164225380349, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263118455889724043, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_text
+      value: "Para visualizar um modelo, posicione a c\xE2mera sobre um marcador
+        da Cartilha"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728102996751479017, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_text
+      value: "Ap\xF3s o modelo ficar vis\xEDvel sobre o marcador, toque nele e rotacione
+        para visualiz\xE1-lo de diferentes \xE2ngulos"
       objectReference: {fileID: 0}
     - target: {fileID: 8307519770799620581, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_Name
