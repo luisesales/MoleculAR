@@ -49,7 +49,7 @@ public class ModelController : MonoBehaviour
         //     isActive = false;
         //     check = true;
         //     GameController.Instance.OutlineObject();
-        //}
+        // }
 
         //Mobile
         if (isActive)

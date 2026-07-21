@@ -8,8 +8,11 @@ public class Model : ScriptableObject
     private string _id;
 
     public string id => _id;
-    public string name;
-    public string scientificalName;         
+    public string name = "Não Inserido";
+    public string scientificalName = "Não Inserido";
+    public string atomicNumber = "Não Inserido";
+    public string molecularFormula = "Não Inserida";
+    public string applications = "Nenhuma";   
 
 
     public float maxZoomIn = 10f;         // Max Zoom Distance in Meters

@@ -15,6 +15,7 @@ TagManager:
   - Step
   - CanvasReturnMenu
   - CanvasToggleTutorial
+  - CanvasInputField
   layers:
   - Default
   - TransparentFX
