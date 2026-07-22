@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Glucagon
   scientificalName: Glucagon
-  atomicNumber: "N\xE3o Inserido"
-  molecularFormula: C<sub>153</sub>H<sub>225</sub>N<sub>43</sub>O<sub>49</sub>S,
+  atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O<sub>16</sub>S
+  molecularFormula: C<sub>153</sub>H<sub>225</sub>N<sub>43</sub>O<sub>49</sub>S
   applications: "Seu uso como medicamento (em inje\xE7\xE3o ou spray) \xE9 vital
     para tratar a hipoglicemia severa. \xC9 indispens\xE1vel para portadores de diabetes,
     revertendo quedas de glicose t\xE3o graves que causam desmaios ou confus\xE3o
     mental, onde a ingest\xE3o de a\xE7\xFAcar \xE9 imposs\xEDvel."
+  structuralLevel:
+    primario: 1
+    secundario: 1
+    terciario: 0
+    quaternario: 0
   maxZoomIn: 5
   maxZoomOut: 5

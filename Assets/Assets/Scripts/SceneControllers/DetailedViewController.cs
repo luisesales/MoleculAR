@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
 
 [System.Serializable] 
 public struct ModelInfoReferences
@@ -11,6 +12,11 @@ public struct ModelInfoReferences
     public TMP_Text atomicNumber;
     public TMP_Text molecularFormula;
     public TMP_Text applications;
+
+    public Toggle primario;
+    public Toggle secundario;
+    public Toggle terciario;
+    public Toggle quaternario;
 }
 
 
@@ -46,6 +52,10 @@ public class DetailedViewController : MonoBehaviour
         modelInfoReferences.atomicNumber.text = modelController.modelData.atomicNumber;
         modelInfoReferences.molecularFormula.text = modelController.modelData.molecularFormula;
         modelInfoReferences.applications.text = modelController.modelData.applications;
+        modelInfoReferences.primario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.primario);
+        modelInfoReferences.secundario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.secundario);
+        modelInfoReferences.terciario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.terciario);
+        modelInfoReferences.quaternario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.quaternario);
     }
 
     void Update()
