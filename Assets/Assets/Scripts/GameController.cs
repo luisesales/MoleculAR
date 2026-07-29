@@ -71,10 +71,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         // Initialize selectedModel to null
-        selectedModel = null;
-
-        // Locks Screen Rotation
-        Screen.orientation = ScreenOrientation.Portrait;
+        selectedModel = null;        
 
         // Starts Menu Scene
         SetupMenu();      
@@ -126,6 +123,19 @@ public class GameController : MonoBehaviour
         ToggleGameObject(tutorialCanvas);
 
     }
+
+    // Called to Setup the Catalog Scene
+    private void SetupCatalog()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+    }
+
+    // Called when the catalog scene is loaded and called by SceneManager.sceneLoaded 
+    private void StartCatalog(Scene scene, LoadSceneMode mode)
+    {
+       SetupCatalog();
+       SceneManager.sceneLoaded -= StartCatalog;
+    }
     
     // Called to Setup the Menu Scene 
     private void SetupMenu()
@@ -141,7 +151,9 @@ public class GameController : MonoBehaviour
         {
             Debug.LogWarning("Toggle Tutorials Button not found in the Menu scene.");
         }
-        
+
+        // Locks Screen Rotation
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     // Called when the menu scene is loaded and called by SceneManager.sceneLoaded 
@@ -375,6 +387,13 @@ public class GameController : MonoBehaviour
     {        
         SceneManager.LoadScene("Menu");
         SceneManager.sceneLoaded += StartMenu;
+    }
+
+    // Called to load the catalog scene
+    public void LoadCatalog()
+    {
+        SceneManager.LoadScene("Catalog");
+        SceneManager.sceneLoaded += StartCatalog;
     }
 
     // Method to get the canvas and its components

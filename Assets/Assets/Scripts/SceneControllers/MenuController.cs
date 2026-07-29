@@ -14,6 +14,11 @@ public class MenuController : MonoBehaviour
         GameController.Instance.DownloadCartilha();
     }
 
+    public void ViewCatalog()
+    {
+        GameController.Instance.LoadCatalog();
+    }
+
     public void ToggleTutorials()
     {
         GameController.Instance.ToggleTutorials();
