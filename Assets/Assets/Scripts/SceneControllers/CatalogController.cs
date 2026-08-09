@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CatalogController : MonoBehaviour
 {
+    private bool IsFiltersOpen = false;
+    private bool IsFiltersActive = false;
+
+    public GameObject FiltersPanel;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +20,10 @@ public class CatalogController : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    public void OpenCloseFilters(){
+        FiltersPanel.SetActive(!FiltersPanel.activeSelf);
     }
 }

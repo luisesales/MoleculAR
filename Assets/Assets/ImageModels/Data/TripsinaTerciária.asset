@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb4b8054abdce954e830359b1638a240, type: 3}
-  m_Name: "TripsinaTerci\xE1riaQuatern\xE1ria"
+  m_Name: "TripsinaTerci\xE1ria"
   m_EditorClassIdentifier: 
   name: Tripsina
   scientificalName: Tripsina
@@ -24,6 +24,6 @@ MonoBehaviour:
     primario: 0
     secundario: 0
     terciario: 1
-    quaternario: 1
+    quaternario: 0
   maxZoomIn: 5
   maxZoomOut: 5

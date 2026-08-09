@@ -14,5 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 'Tripsina '
   scientificalName: 'Tripsina '
+  atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O<sub>16</sub>S
+  molecularFormula: "N\xE3o Contada"
+  applications: "Quebra prote\xEDnas nos intestinos. Embora n\xE3o seja um produto
+    que voc\xEA manipula diretamente em casa, ela est\xE1 presente em processos biol\xF3gicos
+    vitais para o corpo e em importantes aplica\xE7\xF5es laboratoriais, industriais
+    e farmac\xEAuticas."
+  structuralLevel:
+    primario: 1
+    secundario: 0
+    terciario: 0
+    quaternario: 0
   maxZoomIn: 5
   maxZoomOut: 5

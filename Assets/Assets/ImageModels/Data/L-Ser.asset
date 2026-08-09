@@ -14,5 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: L-Ser
   scientificalName: L-Ser
+  atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O
+  molecularFormula: C<sub>3</sub>H<sub>7</sub>NO<sub>3</sub>
+  applications: " Ela atua na sa\xFAde do c\xE9rebro ao ajudar na mem\xF3ria e foco,
+    na melhora da imunidade, na produ\xE7\xE3o de energia celular e na s\xEDntese
+    de prote\xEDnas. Pode ser obtida por meio de carnes, ovos e latic\xEDnios."
+  structuralLevel:
+    primario: 1
+    secundario: 0
+    terciario: 0
+    quaternario: 0
   maxZoomIn: 5
   maxZoomOut: 5
