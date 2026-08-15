@@ -1,21 +1,60 @@
+using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public enum ZoomType : float
+{
+    ZoomIn = 1,
+    ZoomOut = -1,
+}
+
+[System.Serializable]
+public enum FilterType{
+    MolecularType,
+    MolecularStructure
+}
+
+[System.Serializable]
+public struct Filter
+{
+    public string Name;
+    public bool IsActive;
+    public FilterType FilterType;
+}
+[System.Serializable]
+public struct UICardPositions
+{
+    public Transform Position;
+    public bool IsOccupied { get; private set; } = false;
+}
+[System.Serializable]
+public struct UIModel
+{
+    public GameObject SearchText;
+    public GameObject FiltersPannel;
+    public List<Filter> Filters;
+    public List<UICardPositions> CardPositions;
+
+
+}
+
 public class CatalogController : MonoBehaviour
 {
-    public GameObject UI;
     private bool IsFiltersOpen = false;
     private bool IsFiltersActive = false;
+    
+    public UIModel UIModel;
 
-    private GameObject FiltersPanel;
+    public float ZoomDistanceJump = 5f;
 
 
 
     // Start is called before the first frame update
     void Start()
-    {
-        FiltersPanel = UI.transform.Find("FiltersPanel").gameObject;
+    {        
     }
 
     // Update is called once per frame
@@ -26,6 +65,37 @@ public class CatalogController : MonoBehaviour
 
 
     public void OpenCloseFilters(){
-        FiltersPanel.SetActive(!FiltersPanel.activeSelf);
+        UIModel.FiltersPannel.SetActive(!UIModel.FiltersPannel.activeSelf);
+    }
+
+    public void Search(string searchText){
+        Debug.Log("Searching for: " + searchText);
+    }
+
+    public void ApplyFilters(){
+        Debug.Log("Applying Filters");
+    }
+
+    public void ClearFilters(){
+        Debug.Log("Clearing Filters");
+        foreach(Filter filter in Filters)
+        {
+            filter.IsActive = false;
+        }
+    }
+
+    public void SelectModel()
+    {
+        
+    }
+
+    public void DetailModel()
+    {
+        
+    }
+
+    public void Zoom(ZoomType type)
+    {
+        // Distance += type*ZoomDistanceJump;
     }
 }
