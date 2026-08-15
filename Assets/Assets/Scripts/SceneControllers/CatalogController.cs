@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public enum ZoomType : float
+public enum ZoomType : short
 {
     ZoomIn = 1,
     ZoomOut = -1,
@@ -28,7 +28,7 @@ public struct Filter
 public struct UICardPositions
 {
     public Transform Position;
-    public bool IsOccupied { get; private set; } = false;
+    public bool IsOccupied { get; private set; }
 }
 [System.Serializable]
 public struct UIModel
@@ -78,9 +78,11 @@ public class CatalogController : MonoBehaviour
 
     public void ClearFilters(){
         Debug.Log("Clearing Filters");
-        foreach(Filter filter in Filters)
-        {
-            filter.IsActive = false;
+        for(int i = 0; i < UIModel.Filters.Count; i++)
+        {            
+            Filter tempFilter = UIModel.Filters[i];         
+            tempFilter.IsActive = false;            
+            UIModel.Filters[i] = tempFilter;
         }
     }
 
