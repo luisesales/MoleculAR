@@ -128,12 +128,13 @@ public class GameController : MonoBehaviour
     private void SetupCatalog()
     {
         Screen.orientation = ScreenOrientation.Portrait;
+        InitiatePrefabsDictionary();
     }
 
     // Called when the catalog scene is loaded and called by SceneManager.sceneLoaded 
     private void StartCatalog(Scene scene, LoadSceneMode mode)
     {
-       SetupCatalog();
+       SetupCatalog();       
        SceneManager.sceneLoaded -= StartCatalog;
     }
     
@@ -445,5 +446,14 @@ public class GameController : MonoBehaviour
             OpenCloseCanvas();
         }
         OutlineObject();
+    }
+
+    public void VisualizeModel(GameObject model, Transform spawnerPosition)
+    {
+        string modelId = model.GetComponent<ModelController>().modelData.id;
+        if(modelId == selectedModel?.GetComponent<ModelController>().modelData.id) return;
+        if(selectedSceneModel != null) Destroy(selectedSceneModel);
+        selectedModel = prefabs[modelId];
+        selectedSceneModel = Instantiate(selectedModel, spawnerPosition);
     }
 }

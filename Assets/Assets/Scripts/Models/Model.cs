@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using System;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ public class Model : ScriptableObject
     public string molecularFormula = "Não Inserida";
     public string applications = "Nenhuma";   
     public structuralLevel structuralLevel = new structuralLevel(true, false, false, false);
+
+    public UnityEngine.UI.Image associatedImage;
 
     public float maxZoomIn = 10f;         // Max Zoom Distance in Meters
     public float maxZoomOut = 0f;         // Min Zoom Distance in Meters   

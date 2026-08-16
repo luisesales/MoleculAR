@@ -2,6 +2,7 @@ using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [System.Serializable]
@@ -25,25 +26,30 @@ public struct Filter
     public FilterType FilterType;
 }
 [System.Serializable]
-public struct UICardPositions
+public struct UICardPosition
 {
     public Transform Position;
-    public bool IsOccupied { get; private set; }
+    public bool IsOccupied;
 }
 [System.Serializable]
 public struct UIModel
 {
     public GameObject SearchText;
     public GameObject FiltersPannel;
+
+    public GameObject CardsSpawner;
+    public List<UICardPosition> CardPositions;
+
+    public GameObject CardPrefab;
     public List<Filter> Filters;
-    public List<UICardPositions> CardPositions;
+    
+    public Transform ModelSpawnerPosition;
 
 
 }
 
 public class CatalogController : MonoBehaviour
 {
-    private bool IsFiltersOpen = false;
     private bool IsFiltersActive = false;
     
     public UIModel UIModel;
@@ -54,13 +60,29 @@ public class CatalogController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        InstantiateCards();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void InstantiateCards()
+    {
+        int i = 0;
+        foreach (GameObject model in GameController.Instance.prefabs.Values)
+        {            
+            GameObject card = Instantiate(UIModel.CardPrefab, UIModel.CardPositions[i].Position);
+            UICardPosition temp = UIModel.CardPositions[i];
+            temp.IsOccupied = true;
+            UIModel.CardPositions[i] = temp;
+            card.GetComponent<Button>().onClick.AddListener(() => SelectModel(model));
+            card.GetComponent<CardController>().SetupCard(model);
+            i++;
+        }
     }
 
 
@@ -86,14 +108,14 @@ public class CatalogController : MonoBehaviour
         }
     }
 
-    public void SelectModel()
+    public void SelectModel(GameObject model)
     {
-        
+        GameController.Instance.VisualizeModel(model,UIModel.ModelSpawnerPosition);
     }
 
     public void DetailModel()
     {
-        
+        GameController.Instance.DetailModel();
     }
 
     public void Zoom(ZoomType type)
