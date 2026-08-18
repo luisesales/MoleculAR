@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour
     // Called to Setup the Catalog Scene
     private void SetupCatalog()
     {
-        Screen.orientation = ScreenOrientation.Portrait;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         InitiatePrefabsDictionary();
     }
 
@@ -160,7 +160,8 @@ public class GameController : MonoBehaviour
     private void InstantiateModel(Scene scene, LoadSceneMode mode)
     {        
         CheckFirstTimeTutorials(ref firstTimeTutorialDetailed);        
-        Debug.Log("Instantiating model: " + selectedModel?.name);        
+        Debug.Log("Instantiating model: " + selectedModel?.name);      
+        Screen.orientation = ScreenOrientation.Portrait;  
         GameObject selector = GameObject.FindWithTag("Selector");
         GameObject model = Instantiate(selectedModel);
         model.transform.position = selector.transform.position;
