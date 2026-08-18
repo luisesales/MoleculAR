@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,19 +27,14 @@ public struct Filter
     public FilterType FilterType;
 }
 [System.Serializable]
-public struct UICardPosition
-{
-    public Transform Position;
-    public bool IsOccupied;
-}
-[System.Serializable]
 public struct UIModel
 {
     public GameObject SearchText;
     public GameObject FiltersPannel;
 
+    public GameObject SimulationControls;
+
     public GameObject CardsSpawner;
-    public List<UICardPosition> CardPositions;
 
     public GameObject CardPrefab;
     public List<Filter> Filters;
@@ -62,6 +58,8 @@ public class CatalogController : MonoBehaviour
     void Start()
     {
         InstantiateCards();
+        UIModel.FiltersPannel.SetActive(false);
+        UIModel.SimulationControls.SetActive(false);
     }
 
     // Update is called once per frame
@@ -75,12 +73,9 @@ public class CatalogController : MonoBehaviour
         int i = 0;
         foreach (GameObject model in GameController.Instance.prefabs.Values)
         {            
-            GameObject card = Instantiate(UIModel.CardPrefab, UIModel.CardPositions[i].Position);
-            UICardPosition temp = UIModel.CardPositions[i];
-            temp.IsOccupied = true;
-            UIModel.CardPositions[i] = temp;
+            GameObject card = Instantiate(UIModel.CardPrefab,UIModel.CardsSpawner.transform,false);
             card.GetComponent<Button>().onClick.AddListener(() => SelectModel(model));
-            card.GetComponent<CardController>().SetupCard(model);
+            card.GetComponent<CardController>().SetupCard(model);            
             i++;
         }
     }
@@ -111,6 +106,8 @@ public class CatalogController : MonoBehaviour
     public void SelectModel(GameObject model)
     {
         GameController.Instance.VisualizeModel(model,UIModel.ModelSpawnerPosition);
+        if(UIModel.SimulationControls.activeSelf) return;        
+        UIModel.SimulationControls.SetActive(true);        
     }
 
     public void DetailModel()

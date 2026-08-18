@@ -1473,7 +1473,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 563851644}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: DownloadPDF
+        m_MethodName: ViewCatalog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

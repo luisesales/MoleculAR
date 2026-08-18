@@ -19,8 +19,8 @@ public class CardController : MonoBehaviour
     public void SetupCard(GameObject model)
     {
         this.model = model.GetComponent<ModelController>().modelData;
-        name.text = this.model.name;
-        sourceImage.sprite = this.model.associatedImage.sprite;
+        name.text = this.model.name;        
+        sourceImage.sprite = this.model.associatedImage;
         
     }
 }

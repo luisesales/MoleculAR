@@ -78,15 +78,7 @@ public class GameController : MonoBehaviour
     }
 
     // PRIVATE METHODS
-    private void ToggleGameObject(GameObject obj)
-    {
-        if (obj != null)
-        {
-            obj.SetActive(!obj.activeSelf);
-            Debug.Log("Changing " + obj.name + " Active State to: " + obj.activeSelf);
-        }
-    }
-
+    
     // Initialize the prefabs dictionary based on the selected quality
     private void InitiatePrefabsDictionary()
     {
@@ -262,6 +254,16 @@ public class GameController : MonoBehaviour
     }
 
     // PUBLIC METHODS
+
+    public void ToggleGameObject(GameObject obj)
+    {
+        if (obj != null)
+        {
+            obj.SetActive(!obj.activeSelf);
+            Debug.Log("Changing " + obj.name + " Active State to: " + obj.activeSelf);
+        }
+    }
+
 
     //Called for loading the detailed model scene
     public void DetailModel()
