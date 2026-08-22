@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: L-Alanina
   scientificalName: L-Alanina
+  atomicNumber: "N\xE3o Inserido"
+  molecularFormula: "N\xE3o Inserida"
+  applications: Nenhuma
+  structuralLevel:
+    primario: 1
+    secundario: 0
+    terciario: 0
+    quaternario: 0
+  associatedImage: {fileID: 21300000, guid: 5af58e1cb50872b4caf014116bf0fdeb, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5

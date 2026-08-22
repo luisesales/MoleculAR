@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Glucagon
   scientificalName: Glucagon
+  atomicNumber: "N\xE3o Inserido"
+  molecularFormula: "N\xE3o Inserida"
+  applications: Nenhuma
+  structuralLevel:
+    primario: 1
+    secundario: 0
+    terciario: 0
+    quaternario: 0
+  associatedImage: {fileID: 21300000, guid: 2b80a11881e959748b790af2abee373e, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5

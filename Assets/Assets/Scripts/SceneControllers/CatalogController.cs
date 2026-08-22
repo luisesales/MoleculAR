@@ -1,9 +1,11 @@
+using System;
 using System.Numerics;
 using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 [System.Serializable]
@@ -23,8 +25,17 @@ public enum FilterType{
 public struct Filter
 {
     public string Name;
-    public bool IsActive;
+    public Toggle toggle;
     public FilterType FilterType;
+
+}
+[System.Serializable]
+public struct FilterGroup
+{
+    public List<Filter> Filters;
+    public TMP_Text SelectedFiltersCountText;
+    public int SelectedFiltersCount;
+
 }
 [System.Serializable]
 public struct UIModel
@@ -37,7 +48,8 @@ public struct UIModel
     public GameObject CardsSpawner;
 
     public GameObject CardPrefab;
-    public List<Filter> Filters;
+    
+    public FilterGroup FilterGroup;
     
     public Transform ModelSpawnerPosition;
 
@@ -51,6 +63,7 @@ public class CatalogController : MonoBehaviour
     public UIModel UIModel;
 
     public float ZoomDistanceJump = 5f;
+    
 
 
 
@@ -95,11 +108,11 @@ public class CatalogController : MonoBehaviour
 
     public void ClearFilters(){
         Debug.Log("Clearing Filters");
-        for(int i = 0; i < UIModel.Filters.Count; i++)
+        for(int i = 0; i < UIModel.FilterGroup.Filters.Count; i++)
         {            
-            Filter tempFilter = UIModel.Filters[i];         
-            tempFilter.IsActive = false;            
-            UIModel.Filters[i] = tempFilter;
+            Filter tempFilter = UIModel.FilterGroup.Filters[i];         
+            tempFilter.toggle.SetIsOnWithoutNotify(false);            
+            UIModel.FilterGroup.Filters[i] = tempFilter;
         }
     }
 
@@ -118,5 +131,15 @@ public class CatalogController : MonoBehaviour
     public void Zoom(ZoomType type)
     {
         // Distance += type*ZoomDistanceJump;
+    }    
+
+    public void ToggleFilter(bool value)
+    {
+        if(value) 
+        {
+            UIModel.FilterGroup.SelectedFiltersCountText.text = (++UIModel.FilterGroup.SelectedFiltersCount).ToString();
+            return;
+        }
+        UIModel.FilterGroup.SelectedFiltersCountText.text = (--UIModel.FilterGroup.SelectedFiltersCount).ToString();
     }
 }
