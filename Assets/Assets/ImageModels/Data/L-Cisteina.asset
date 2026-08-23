@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: L-Cisteina
   m_EditorClassIdentifier: 
   name: "L-Ciste\xEDna"
-  scientificalName: "L-Ciste\xEDna"
+  scientificalName: "l-ciste\xEDna"
   atomicNumber: "N\xE3o Inserido"
   molecularFormula: "N\xE3o Inserida"
   applications: Nenhuma

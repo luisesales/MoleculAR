@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "GlucagonSecund\xE1rio"
   m_EditorClassIdentifier: 
   name: Glucagon
-  scientificalName: Glucagon
+  scientificalName: glucagon
   atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O<sub>16</sub>S
   molecularFormula: C<sub>153</sub>H<sub>225</sub>N<sub>43</sub>O<sub>49</sub>S
   applications: "Seu uso como medicamento (em inje\xE7\xE3o ou spray) \xE9 vital

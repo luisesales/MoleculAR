@@ -40,12 +40,12 @@ public struct FilterGroup
 [System.Serializable]
 public struct UIModel
 {
-    public GameObject SearchText;
+    public TMP_InputField SearchText;
     public GameObject FiltersPannel;
 
     public GameObject SimulationControls;
 
-    public GameObject CardsSpawner;
+    public Transform CardsSpawner;
 
     public GameObject CardPrefab;
     
@@ -75,22 +75,22 @@ public class CatalogController : MonoBehaviour
         UIModel.SimulationControls.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void InstantiateCards()
     {
-        int i = 0;
+        GameController.Instance.InitiatePrefabsDictionary();
         foreach (GameObject model in GameController.Instance.prefabs.Values)
         {            
-            GameObject card = Instantiate(UIModel.CardPrefab,UIModel.CardsSpawner.transform,false);
+            GameObject card = Instantiate(UIModel.CardPrefab,UIModel.CardsSpawner,false);
             card.GetComponent<Button>().onClick.AddListener(() => SelectModel(model));
             card.GetComponent<CardController>().SetupCard(model);            
-            i++;
         }
+    }
+
+    private void SetFiltersCount(int count)
+    {
+        UIModel.FilterGroup.SelectedFiltersCount = count;
+        UIModel.FilterGroup.SelectedFiltersCountText.text = count.ToString();
     }
 
 
@@ -98,22 +98,88 @@ public class CatalogController : MonoBehaviour
         UIModel.FiltersPannel.SetActive(!UIModel.FiltersPannel.activeSelf);
     }
 
-    public void Search(string searchText){
-        Debug.Log("Searching for: " + searchText);
+    public void Search(){
+        if (string.IsNullOrEmpty(UIModel.SearchText.text))
+        {
+            for (int i = 0; i < UIModel.CardsSpawner.childCount; i++)
+            {
+                UIModel.CardsSpawner.GetChild(i).gameObject.SetActive(true);
+            }
+        }        
+        Debug.Log("Searching for: " + UIModel.SearchText.text);
+        string lowerText = UIModel.SearchText.text.ToLower();
+        for (int i = 0; i < UIModel.CardsSpawner.childCount; i++)
+        {
+            Transform child = UIModel.CardsSpawner.GetChild(i);
+            CardController card = child.GetComponent<CardController>();
+            if (card != null)
+            {
+                if (card.approvedInFilters == false)
+                {
+                    child.gameObject.SetActive(false);
+                    continue; 
+                }
+                if (card.model.scientificalName.Contains(lowerText)){
+                    child.gameObject.SetActive(true);
+                    continue;
+                }
+                child.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void ApplyFilters(){
         Debug.Log("Applying Filters");
-    }
+        
+        bool filterPrimary = UIModel.FilterGroup.Filters[0].toggle.isOn;
+        bool filterSecondary = UIModel.FilterGroup.Filters[1].toggle.isOn;
+        bool filterTerciary = UIModel.FilterGroup.Filters[2].toggle.isOn;
+        bool filterQuaternary = UIModel.FilterGroup.Filters[3].toggle.isOn;
+        bool filterAminoacid = UIModel.FilterGroup.Filters[4].toggle.isOn;
+        bool filterProtein = UIModel.FilterGroup.Filters[5].toggle.isOn;        
+        
+        // Se nenhum filtro estiver marcado, mostramos tudo (regra comum de UX)
+        bool filtersOff = !(filterPrimary || filterSecondary || filterTerciary || filterQuaternary || filterAminoacid || filterProtein);
+        
+        for (int i = 0; i < UIModel.CardsSpawner.childCount; i++)
+        {
+            Transform child = UIModel.CardsSpawner.GetChild(i);
+            CardController card = child.GetComponent<CardController>();
+            
+            if (card != null && card.model != null)
+            {
+                // Se nenhum filtro estiver ativo, liga o card e vai para o próximo
+                if (filtersOff)
+                {
+                    child.gameObject.SetActive(true);
+                    continue;
+                }
 
+                // Acessamos os dados da proteína diretamente
+                var level = card.model.structuralLevel;
+
+                // Fazemos o match (compara as variáveis em memória, o que é instantâneo)
+                bool showCard = false;
+
+                if (filterPrimary && level.primario) showCard = true;
+                if (filterSecondary && level.secundario) showCard = true;
+                if (filterTerciary && level.terciario) showCard = true;
+                if (filterQuaternary && level.quaternario) showCard = true;
+
+                // Liga ou desliga baseado no resultado
+                card.approvedInFilters = showCard;
+                child.gameObject.SetActive(showCard);
+            }
+        }
+    }
     public void ClearFilters(){
         Debug.Log("Clearing Filters");
-        for(int i = 0; i < UIModel.FilterGroup.Filters.Count; i++)
-        {            
-            Filter tempFilter = UIModel.FilterGroup.Filters[i];         
-            tempFilter.toggle.SetIsOnWithoutNotify(false);            
-            UIModel.FilterGroup.Filters[i] = tempFilter;
+        foreach(Filter filter in UIModel.FilterGroup.Filters)        
+        {                  
+            filter.toggle.SetIsOnWithoutNotify(false);            
         }
+        ApplyFilters();
+        SetFiltersCount(0);
     }
 
     public void SelectModel(GameObject model)
@@ -135,11 +201,19 @@ public class CatalogController : MonoBehaviour
 
     public void ToggleFilter(bool value)
     {
+        Debug.Log("Toggling a Filter");
         if(value) 
         {
-            UIModel.FilterGroup.SelectedFiltersCountText.text = (++UIModel.FilterGroup.SelectedFiltersCount).ToString();
+            Debug.Log("Increasing FilterCount Value");
+            SetFiltersCount(++UIModel.FilterGroup.SelectedFiltersCount);
             return;
         }
-        UIModel.FilterGroup.SelectedFiltersCountText.text = (--UIModel.FilterGroup.SelectedFiltersCount).ToString();
+        Debug.Log("Decreasing FilterCount Value");
+        SetFiltersCount(--UIModel.FilterGroup.SelectedFiltersCount);
+    }
+
+    public void ReturnMenu()
+    {
+        GameController.Instance.ReturnMenu();
     }
 }

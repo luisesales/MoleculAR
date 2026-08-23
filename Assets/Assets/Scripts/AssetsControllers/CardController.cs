@@ -9,6 +9,8 @@ public class CardController : MonoBehaviour
 {
     public Model model { get; private set;}
 
+    [HideInInspector] public bool approvedInFilters = true;
+
 
     [SerializeField]
     private TMP_Text name;
@@ -19,7 +21,7 @@ public class CardController : MonoBehaviour
     public void SetupCard(GameObject model)
     {
         this.model = model.GetComponent<ModelController>().modelData;
-        name.text = this.model.name;        
+        name.text = this.model.name;         
         sourceImage.sprite = this.model.associatedImage;
         
     }

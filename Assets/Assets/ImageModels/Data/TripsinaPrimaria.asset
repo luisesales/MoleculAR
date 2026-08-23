@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TripsinaPrimaria
   m_EditorClassIdentifier: 
   name: 'Tripsina '
-  scientificalName: 'Tripsina '
+  scientificalName: 'tripsina '
   atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O<sub>16</sub>S
   molecularFormula: "N\xE3o Contada"
   applications: "Quebra prote\xEDnas nos intestinos. Embora n\xE3o seja um produto
@@ -25,5 +25,6 @@ MonoBehaviour:
     secundario: 0
     terciario: 0
     quaternario: 0
+  associatedImage: {fileID: 21300000, guid: dd00efdba3f3f494ca9a17264e87917a, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5

@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
     // PRIVATE METHODS
     
     // Initialize the prefabs dictionary based on the selected quality
-    private void InitiatePrefabsDictionary()
+    public void InitiatePrefabsDictionary()
     {
         selectedPrefabsList = isUsingHighQualityModels ? prefabsListHighQuality : prefabsListLowQuality;
         prefabs = new Dictionary<string, GameObject>();        

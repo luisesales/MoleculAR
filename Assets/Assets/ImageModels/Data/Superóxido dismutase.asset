@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4b8054abdce954e830359b1638a240, type: 3}
   m_Name: "Super\xF3xido dismutase"
   m_EditorClassIdentifier: 
-  name: "Super\xF3xido dismutase"
-  scientificalName: "Super\xF3xido dismutase"
+  name: "Super\xF3xido Dismutase"
+  scientificalName: "super\xF3xido dismutase"
   atomicNumber: "N\xE3o Inserido"
   molecularFormula: "N\xE3o Inserida"
   applications: Nenhuma

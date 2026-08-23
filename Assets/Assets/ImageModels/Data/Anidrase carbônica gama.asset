@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4b8054abdce954e830359b1638a240, type: 3}
   m_Name: "Anidrase carb\xF4nica gama"
   m_EditorClassIdentifier: 
-  name: "Anidrase carb\xF4nica gama"
-  scientificalName: "Anidrase carb\xF4nica gama"
+  name: "Anidrase Carb\xF4nica Gama"
+  scientificalName: "anidrase carb\xF4nica gama"
   atomicNumber: "N\xE3o Inserido"
   molecularFormula: "N\xE3o Inserida"
   applications: Nenhuma

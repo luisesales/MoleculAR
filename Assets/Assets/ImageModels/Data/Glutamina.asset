@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: Glutamina
   m_EditorClassIdentifier: 
   name: Glutamina
-  scientificalName: L-glutamina
+  scientificalName: glutamina
+  atomicNumber: "N\xE3o Inserido"
+  molecularFormula: "N\xE3o Inserida"
+  applications: Nenhuma
+  structuralLevel:
+    primario: 1
+    secundario: 0
+    terciario: 0
+    quaternario: 0
+  associatedImage: {fileID: 21300000, guid: dd00efdba3f3f494ca9a17264e87917a, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5
