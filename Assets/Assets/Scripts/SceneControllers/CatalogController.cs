@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System;
 using System.Numerics;
 using System.Security.AccessControl;
@@ -40,6 +41,7 @@ public struct FilterGroup
 [System.Serializable]
 public struct UIModel
 {
+    public ScrollRect CatalogScrollRect;
     public TMP_InputField SearchText;
     public GameObject FiltersPannel;
 
@@ -85,6 +87,8 @@ public class CatalogController : MonoBehaviour
             card.GetComponent<Button>().onClick.AddListener(() => SelectModel(model));
             card.GetComponent<CardController>().SetupCard(model);            
         }
+        Canvas.ForceUpdateCanvases();    
+        UIModel.CatalogScrollRect.verticalNormalizedPosition = 1f;        
     }
 
     private void SetFiltersCount(int count)

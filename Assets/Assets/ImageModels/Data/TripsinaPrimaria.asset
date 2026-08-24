@@ -25,6 +25,6 @@ MonoBehaviour:
     secundario: 0
     terciario: 0
     quaternario: 0
-  associatedImage: {fileID: 21300000, guid: dd00efdba3f3f494ca9a17264e87917a, type: 3}
+  associatedImage: {fileID: 21300000, guid: b10c8da3f9e393a4fa47d6871d335ed4, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5
