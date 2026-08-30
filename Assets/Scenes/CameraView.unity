@@ -245,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.26
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 8300823495298109920, guid: 1a743e441f113a048bd076a6adbaefe6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -306,10 +306,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 731645403}
     m_Modifications:
-    - target: {fileID: 1073148519174154943, guid: 9518668537a3b494384f2aebc4dfbe1e, type: 3}
-      propertyPath: modelData
-      value: 
-      objectReference: {fileID: 11400000, guid: ed125be2139ce68409cad992908825cf, type: 2}
     - target: {fileID: 7259570985257135912, guid: 9518668537a3b494384f2aebc4dfbe1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -366,6 +362,11 @@ PrefabInstance:
 --- !u!4 &359283291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7259570985257135912, guid: 9518668537a3b494384f2aebc4dfbe1e, type: 3}
+  m_PrefabInstance: {fileID: 359283290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &359283292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8296749786933976651, guid: 9518668537a3b494384f2aebc4dfbe1e, type: 3}
   m_PrefabInstance: {fileID: 359283290}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &473528566
@@ -432,6 +433,11 @@ PrefabInstance:
 --- !u!4 &473528567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2407738012885030336, guid: 9cd0492525655c04c8ad3b15ca830915, type: 3}
+  m_PrefabInstance: {fileID: 473528566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &473528568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4130011927483504180, guid: 9cd0492525655c04c8ad3b15ca830915, type: 3}
   m_PrefabInstance: {fileID: 473528566}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &591616818
@@ -796,7 +802,7 @@ MonoBehaviour:
   OnTargetFound:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 473528568}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -811,7 +817,7 @@ MonoBehaviour:
   OnTargetLost:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 473528568}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -945,7 +951,7 @@ MonoBehaviour:
   OnTargetFound:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 359283292}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -960,7 +966,7 @@ MonoBehaviour:
   OnTargetLost:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 359283292}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1059,18 +1065,6 @@ MonoBehaviour:
   OnTargetFound:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7823043311573514070, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
-        m_TargetAssemblyTypeName: TutorialCanvasSteps, Assembly-CSharp
-        m_MethodName: NextPart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6806962137547908864}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2527,6 +2521,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2161825288039667069, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
+      propertyPath: m_text
+      value: "E por fim aqui voc\xEA pode fechar esse menu e voltar ao estado inicial
+        da p\xE1gina de c\xE2mera"
+      objectReference: {fileID: 0}
     - target: {fileID: 3092494204923977347, guid: c0cc65b37a727cf40b42ec6493e0969d, type: 3}
       propertyPath: m_text
       value: "Aqui iniciaremos o tutorial para usar as fun\xE7\xF5es b\xE1sicas do

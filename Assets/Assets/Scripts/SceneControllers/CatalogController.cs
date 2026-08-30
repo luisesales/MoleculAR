@@ -1,20 +1,11 @@
 using System.ComponentModel;
 using System;
-using System.Numerics;
-using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-
-[System.Serializable]
-public enum ZoomType : short
-{
-    ZoomIn = 1,
-    ZoomOut = -1,
-}
+using DG.Tweening;
 
 [System.Serializable]
 public enum FilterType{
@@ -43,6 +34,8 @@ public struct UIModel
 {
     public ScrollRect CatalogScrollRect;
     public TMP_InputField SearchText;
+
+    public TMP_Text ModelName;
     public GameObject FiltersPannel;
 
     public GameObject SimulationControls;
@@ -61,10 +54,14 @@ public struct UIModel
 public class CatalogController : MonoBehaviour
 {
     private bool IsFiltersActive = false;
+
+    private int ZoomJumpsAmount = 0;
+    
     
     public UIModel UIModel;
 
-    public float ZoomDistanceJump = 5f;
+    public float ZoomDistanceJumpFactor = 1f;
+    public int ZoomJumpsLimit = 5;
     
 
 
@@ -79,8 +76,7 @@ public class CatalogController : MonoBehaviour
 
 
     private void InstantiateCards()
-    {
-        GameController.Instance.InitiatePrefabsDictionary();
+    {        
         foreach (GameObject model in GameController.Instance.prefabs.Values)
         {            
             GameObject card = Instantiate(UIModel.CardPrefab,UIModel.CardsSpawner,false);
@@ -188,8 +184,9 @@ public class CatalogController : MonoBehaviour
 
     public void SelectModel(GameObject model)
     {
-        GameController.Instance.VisualizeModel(model,UIModel.ModelSpawnerPosition);
-        if(UIModel.SimulationControls.activeSelf) return;        
+        GameController.Instance.VisualizeModel(model,UIModel.ModelSpawnerPosition, UIModel.ModelName);
+        ZoomJumpsAmount = 0; 
+        if(UIModel.SimulationControls.activeSelf) return;               
         UIModel.SimulationControls.SetActive(true);        
     }
 
@@ -198,9 +195,21 @@ public class CatalogController : MonoBehaviour
         GameController.Instance.DetailModel();
     }
 
-    public void Zoom(ZoomType type)
+    public void ZoomIn(bool type)
     {
+        float t = type? -1 : 1;
+        int NextJump = ZoomJumpsAmount+(int)t;
+        if(Mathf.Abs(NextJump) > ZoomJumpsLimit) return;
+        Transform modelTransform = UIModel.ModelSpawnerPosition.GetChild(0);
+        Vector3 targetPosition = new Vector3(
+            modelTransform.position.x + (t * 0.15f * ZoomDistanceJumpFactor), 
+            modelTransform.position.y,
+            modelTransform.position.z + (t * 0.25f * ZoomDistanceJumpFactor)
+        );
+        modelTransform.DOMove(targetPosition, 0.3f).SetEase(Ease.OutQuad);
+        ZoomJumpsAmount = NextJump;
         // Distance += type*ZoomDistanceJump;
+        // Proportions for Jump x = -0.15; z = -0.25 
     }    
 
     public void ToggleFilter(bool value)

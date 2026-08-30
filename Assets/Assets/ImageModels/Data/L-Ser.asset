@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: L-Ser
   m_EditorClassIdentifier: 
   name: L-Ser
+  extendedName: "L-Ser Prim\xE1rio"
   scientificalName: l-ser
   atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O
   molecularFormula: C<sub>3</sub>H<sub>7</sub>NO<sub>3</sub>

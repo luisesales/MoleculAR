@@ -24,6 +24,8 @@ public class Model : ScriptableObject
 
     public string id => _id;
     public string name = "Não Inserido";
+
+    public string extendedName = "Não Inserido";
     public string scientificalName = "Não Inserido";
     public string atomicNumber = "Não Inserido";
     public string molecularFormula = "Não Inserida";

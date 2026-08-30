@@ -27,8 +27,9 @@ public class GameController : MonoBehaviour
 
     public bool activeTutorials { get; private set; } = true;
     private GameObject selectedSceneModel;
-
     private bool isUsingHighQualityModels = false;    
+    private bool isOnSimulation = false;
+
 
 
     // Private Variables
@@ -47,6 +48,7 @@ public class GameController : MonoBehaviour
     private GameObject toggleTutorialsButton;
     private bool firstTimeTutorialSimulation = true;
     private bool firstTimeTutorialDetailed = true;
+    private bool firstTimeTutorialCatalog = true;
 
     private bool tutorialCompleted = false;
 
@@ -82,11 +84,13 @@ public class GameController : MonoBehaviour
     // Initialize the prefabs dictionary based on the selected quality
     public void InitiatePrefabsDictionary()
     {
+        Debug.Log("InitiatingPrefabsDictionary");
         selectedPrefabsList = isUsingHighQualityModels ? prefabsListHighQuality : prefabsListLowQuality;
         prefabs = new Dictionary<string, GameObject>();        
         foreach (GameObject prefab in selectedPrefabsList)
         {
             if (prefab == null || prefabs.ContainsKey(prefab.GetComponent<ModelController>().modelData.id)) continue;
+            Debug.Log("Adding Prefab: "+ prefab.name);
             prefabs.Add(prefab.GetComponent<ModelController>().modelData.id, prefab);
         }
     }
@@ -119,6 +123,8 @@ public class GameController : MonoBehaviour
     // Called to Setup the Catalog Scene
     private void SetupCatalog()
     {
+        CheckFirstTimeTutorials(ref firstTimeTutorialCatalog);
+        isOnSimulation = false;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         InitiatePrefabsDictionary();
     }
@@ -134,6 +140,7 @@ public class GameController : MonoBehaviour
     private void SetupMenu()
     {
         Debug.Log("Setting up Menu Scene");
+        isOnSimulation = false;
         GetCanvas();       
         toggleTutorialsButton = GameObject.FindWithTag("CanvasToggleTutorial");
         if (toggleTutorialsButton != null)
@@ -233,6 +240,7 @@ public class GameController : MonoBehaviour
     private void StartSimulation(Scene scene, LoadSceneMode mode)
     {        
         InitiatePrefabsDictionary();
+        isOnSimulation = true;
         Debug.Log("Starting simulation scene");
         GetCanvas();
         OpenCloseCanvas();        
@@ -270,8 +278,10 @@ public class GameController : MonoBehaviour
     public void DetailModel()
     {
         Debug.Log("Detailing model: " + selectedModel?.name);
+        
         if (selectedModel != null)
         {
+            Screen.orientation = ScreenOrientation.Portrait;
             SceneManager.LoadScene("DetailedView");
             SceneManager.sceneLoaded += InstantiateModel;
         }
@@ -285,7 +295,12 @@ public class GameController : MonoBehaviour
         {
             toolTip.SetActive(false);
         }
-        LoadSimulation();
+        if(isOnSimulation) 
+        {
+            LoadSimulation();
+            return;
+        }
+        LoadCatalog();
     }
 
     //Called for reset the selected model rotation
@@ -332,6 +347,7 @@ public class GameController : MonoBehaviour
     //Called for loading the simulation scene
     public void LoadSimulation()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         Debug.Log("Loading Simulation Scene");
         StartCoroutine(LoadSceneAsync("CameraView"));                        
     }
@@ -389,6 +405,7 @@ public class GameController : MonoBehaviour
     // Called to return to the main menu scene
     public void ReturnMenu()
     {        
+        Screen.orientation = ScreenOrientation.Portrait;
         SceneManager.LoadScene("Menu");
         SceneManager.sceneLoaded += StartMenu;
     }
@@ -396,6 +413,7 @@ public class GameController : MonoBehaviour
     // Called to load the catalog scene
     public void LoadCatalog()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene("Catalog");
         SceneManager.sceneLoaded += StartCatalog;
     }
@@ -451,11 +469,22 @@ public class GameController : MonoBehaviour
         OutlineObject();
     }
 
-    public void VisualizeModel(GameObject model, Transform spawnerPosition)
+    public void VisualizeModel(GameObject model, Transform spawnerPosition, TMP_Text textCanvas)
     {
-        string modelId = model.GetComponent<ModelController>().modelData.id;
+        if(!tutorialCompleted)
+        {
+            Debug.Log("First time tutorial simulation engaged.");
+            if(tutorialCanvas != null)
+            {
+                Debug.Log("Tutorial canvas found for simulation tutorial: " + tutorialCanvas.name);
+                tutorialCompleted = tutorialCanvas.GetComponent<TutorialCanvasSteps>().NextPart();                
+            }
+        }
+        ModelController modelController = model.GetComponent<ModelController>();
+        string modelId = modelController.modelData.id;
         if(modelId == selectedModel?.GetComponent<ModelController>().modelData.id) return;
         if(selectedSceneModel != null) Destroy(selectedSceneModel);
+        textCanvas.text = modelController.modelData.extendedName;
         selectedModel = prefabs[modelId];
         selectedSceneModel = Instantiate(selectedModel, spawnerPosition);
     }

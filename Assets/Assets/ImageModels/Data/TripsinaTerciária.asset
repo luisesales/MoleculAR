@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "TripsinaTerci\xE1ria"
   m_EditorClassIdentifier: 
   name: Tripsina
+  extendedName: "Tripsina Terci\xE1ria"
   scientificalName: tripsina
   atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O<sub>16</sub>S
   molecularFormula: "N\xE3o Contada"
