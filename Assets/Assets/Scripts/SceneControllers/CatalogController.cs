@@ -62,16 +62,35 @@ public class CatalogController : MonoBehaviour
 
     public float ZoomDistanceJumpFactor = 1f;
     public int ZoomJumpsLimit = 5;
-    
+
+    public Vector2 ModelViewportPosition = new Vector2(0.76f, 0.5f);
+
+    private Camera mainCamera;
+    private float lastCameraAspect;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
+        PlaceModelSpawner();
         InstantiateCards();
         UIModel.FiltersPannel.SetActive(false);
         UIModel.SimulationControls.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (!Mathf.Approximately(mainCamera.aspect, lastCameraAspect)) PlaceModelSpawner();
+    }
+
+    private void PlaceModelSpawner()
+    {
+        lastCameraAspect = mainCamera.aspect;
+        Transform spawner = UIModel.ModelSpawnerPosition;
+        float depth = mainCamera.transform.InverseTransformPoint(spawner.position).z;
+        spawner.position = mainCamera.ViewportToWorldPoint(new Vector3(ModelViewportPosition.x, ModelViewportPosition.y, depth));
     }
 
 
@@ -201,15 +220,11 @@ public class CatalogController : MonoBehaviour
         int NextJump = ZoomJumpsAmount+(int)t;
         if(Mathf.Abs(NextJump) > ZoomJumpsLimit) return;
         Transform modelTransform = UIModel.ModelSpawnerPosition.GetChild(0);
-        Vector3 targetPosition = new Vector3(
-            modelTransform.position.x + (t * 0.15f * ZoomDistanceJumpFactor), 
-            modelTransform.position.y,
-            modelTransform.position.z + (t * 0.25f * ZoomDistanceJumpFactor)
-        );
+        Vector3 zoomDirection = UIModel.ModelSpawnerPosition.position - mainCamera.transform.position;
+        zoomDirection /= mainCamera.transform.InverseTransformDirection(zoomDirection).z;
+        Vector3 targetPosition = modelTransform.position + zoomDirection * (t * 0.25f * ZoomDistanceJumpFactor);
         modelTransform.DOMove(targetPosition, 0.3f).SetEase(Ease.OutQuad);
         ZoomJumpsAmount = NextJump;
-        // Distance += type*ZoomDistanceJump;
-        // Proportions for Jump x = -0.15; z = -0.25 
     }    
 
     public void ToggleFilter(bool value)

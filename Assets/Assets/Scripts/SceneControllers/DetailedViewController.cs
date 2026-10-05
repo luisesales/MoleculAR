@@ -108,7 +108,12 @@ public class DetailedViewController : MonoBehaviour
     
     public void OpenInfo()
     {        
-        lateralPannel.DOAnchorPosX(446f, 0.5f).SetEase(Ease.OutCubic);
+        // Panel is anchored to the right edge of the canvas, so positions are relative to it.
+        // Opens centered on screen, but never further right than -90 so it doesn't cover the InfoClose tab
+        float canvasWidth = ((RectTransform)lateralPannel.parent).rect.width;
+        float panelWidth = lateralPannel.rect.width * lateralPannel.localScale.x;
+        float centeredX = -(canvasWidth - panelWidth) / 2f;
+        lateralPannel.DOAnchorPosX(Mathf.Min(-90f, centeredX), 0.5f).SetEase(Ease.OutCubic);
         closeButton.SetActive(false);
         resetButton.SetActive(false);
         infoCloseButton.SetActive(true);
@@ -117,7 +122,7 @@ public class DetailedViewController : MonoBehaviour
     
     public void CloseInfo()
     {        
-        lateralPannel.DOAnchorPosX(1500f, 0.5f).SetEase(Ease.InCubic);
+        lateralPannel.DOAnchorPosX(960f, 0.5f).SetEase(Ease.InCubic);
         closeButton.SetActive(true);
         resetButton.SetActive(true);
         infoCloseButton.SetActive(false);
