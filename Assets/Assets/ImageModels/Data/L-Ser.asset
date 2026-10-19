@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: L-Ser
   m_EditorClassIdentifier: 
   name: L-Ser
-  scientificalName: L-Ser
+  extendedName: "L-Ser Prim\xE1rio"
+  scientificalName: l-ser
+  atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O
+  molecularFormula: C<sub>3</sub>H<sub>7</sub>NO<sub>3</sub>
+  applications: " Ela atua na sa\xFAde do c\xE9rebro ao ajudar na mem\xF3ria e foco,
+    na melhora da imunidade, na produ\xE7\xE3o de energia celular e na s\xEDntese
+    de prote\xEDnas. Pode ser obtida por meio de carnes, ovos e latic\xEDnios."
+  structuralLevel:
+    primario: 1
+    secundario: 0
+    terciario: 0
+    quaternario: 0
+  associatedImage: {fileID: 21300000, guid: 4f4eed6098c6927408ceb464e8768b32, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5

@@ -21,7 +21,7 @@ public class ActivateObject : MonoBehaviour
             RaycastHit hit;
 
             // Verifica se o toque está sobre a UI
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (!IsPointerOverUIObject(Input.touches[0]))
             {
                 if (Physics.Raycast(ray, out hit))
                 {
@@ -38,6 +38,17 @@ public class ActivateObject : MonoBehaviour
                 }
             }
         }
+    }
 
+    private bool IsPointerOverUIObject(Touch touch)
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(touch.position.x, touch.position.y);
+        
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        
+        // Se a lista for maior que 0, significa que o dedo bateu em algo da UI.
+        return results.Count > 0; 
     }
 }

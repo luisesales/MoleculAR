@@ -19,7 +19,8 @@ public class TutorialCanvasSteps : MonoBehaviour
     {
         currentStepIndex = 0;
         currentPart = 0;           
-        currentStep = tutorialParts[currentPart].transform.GetChild(currentStepIndex).gameObject;             
+        currentStep = tutorialParts[currentPart].transform.GetChild(currentStepIndex).gameObject;
+
     }
     public void NextStep()
     {
@@ -54,14 +55,21 @@ public class TutorialCanvasSteps : MonoBehaviour
         currentPart++;
     }
 
-    public void NextPart()
-    {
-        if(currentPart == tutorialParts.Count - 1)
-            return;
-        foward.SetActive(true);
-        backwards.SetActive(true);        
+    public bool NextPart()
+    {        
+        if(currentPart == tutorialParts.Count)            
+            return true;                                
+        currentStepIndex = 0;        
+        foward.SetActive(true);                        
         background.SetActive(true);
-        tutorialParts[currentPart].SetActive(true);        
+        tutorialParts[currentPart].SetActive(true);  
+        currentStep = tutorialParts[currentPart].transform.GetChild(currentStepIndex).gameObject;     
+        foreach (Transform child in tutorialParts[currentPart].transform)
+        {
+            child.gameObject.SetActive(false);
+        }         
+        currentStep.SetActive(true);
+        return false;
     }
 }
 
