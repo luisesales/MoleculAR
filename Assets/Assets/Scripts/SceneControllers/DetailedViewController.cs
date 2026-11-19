@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public struct ModelInfoReferences
 {
     public TMP_Text name;
+    public TMP_Text elementType;
     public TMP_Text atomicNumber;
     public TMP_Text molecularFormula;
     public TMP_Text applications;
@@ -17,6 +18,9 @@ public struct ModelInfoReferences
     public Toggle secundario;
     public Toggle terciario;
     public Toggle quaternario;
+
+    public GameObject structuralLevelProteinContainer;
+    public GameObject structuralLevelAminoacidContainer;
 }
 
 
@@ -47,11 +51,30 @@ public class DetailedViewController : MonoBehaviour
         currentDistance = mainCamera.transform.position.z;
         startingPosition = mainCamera.transform.position;
         maxZoomIn = modelController.modelData.maxZoomIn;
-        maxZoomOut = modelController.modelData.maxZoomOut;        
+        maxZoomOut = modelController.modelData.maxZoomOut;                
         modelInfoReferences.name.text = modelController.modelData.name;
+        modelInfoReferences.elementType.text = modelController.modelData.structuralLevel.GetElementType();
         modelInfoReferences.atomicNumber.text = modelController.modelData.atomicNumber;
         modelInfoReferences.molecularFormula.text = modelController.modelData.molecularFormula;
         modelInfoReferences.applications.text = modelController.modelData.applications;
+        if(modelController.modelData.structuralLevel.type == elementType.proteina)
+        {
+            Debug.Log("Eu sou uma proteína");
+            modelInfoReferences.structuralLevelProteinContainer.SetActive(true);
+            modelInfoReferences.structuralLevelAminoacidContainer.SetActive(false);
+        }
+        else if(modelController.modelData.structuralLevel.type == elementType.aminoacido)
+        {
+            Debug.Log("Eu sou um aminoácido");
+            modelInfoReferences.structuralLevelProteinContainer.SetActive(false);
+            modelInfoReferences.structuralLevelAminoacidContainer.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Eu sou uma aberração");
+            modelInfoReferences.structuralLevelProteinContainer.SetActive(false);
+            modelInfoReferences.structuralLevelAminoacidContainer.SetActive(false);
+        }
         modelInfoReferences.primario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.primario);
         modelInfoReferences.secundario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.secundario);
         modelInfoReferences.terciario.SetIsOnWithoutNotify(modelController.modelData.structuralLevel.terciario);

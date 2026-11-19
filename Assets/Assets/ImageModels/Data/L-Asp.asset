@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: L-Asp
   m_EditorClassIdentifier: 
   name: L-Asp
+  extendedName: "N\xE3o Inserido"
   scientificalName: l-asp
   atomicNumber: "N\xE3o Inserido"
   molecularFormula: "N\xE3o Inserida"
   applications: Nenhuma
   structuralLevel:
-    primario: 1
+    type: 1
+    primario: 0
     secundario: 0
     terciario: 0
     quaternario: 0

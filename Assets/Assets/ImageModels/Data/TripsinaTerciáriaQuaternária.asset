@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "TripsinaTerci\xE1riaQuatern\xE1ria"
   m_EditorClassIdentifier: 
   name: Tripsina
-  extendedName: "Tripsina Terci\xE1ria Quatern\xE1ria"
+  extendedName: "Tripsina Terci\xE1ria"
   scientificalName: tripsina
   atomicNumber: <sub>6</sub>C<sub>1</sub>H<sub>7</sub>N<sub>8</sub>O<sub>16</sub>S
   molecularFormula: "N\xE3o Contada"
@@ -22,10 +22,11 @@ MonoBehaviour:
     vitais para o corpo e em importantes aplica\xE7\xF5es laboratoriais, industriais
     e farmac\xEAuticas."
   structuralLevel:
+    type: 0
     primario: 0
     secundario: 0
     terciario: 1
-    quaternario: 1
+    quaternario: 0
   associatedImage: {fileID: 21300000, guid: 6fd23da5094016541b657c3ff0ca3832, type: 3}
   maxZoomIn: 5
   maxZoomOut: 5
